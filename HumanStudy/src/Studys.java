@@ -1,8 +1,17 @@
-
-public class Studys {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+/*class S_20211125{
+	void A() {
+		
+		for(int i = 1, j = 1, z = i + j; i<1000;)
+		{
+			System.out.println("a:" + i + " b:" + j + " c:" + z);
+			
+			i = j;
+			j = z;
+			z = i + j;
+			
+			if(z > 1000)
+				break;
+		}
 		
 		int limit = 10;
 		for(int x = 1; x <= limit; x++) {
@@ -20,9 +29,7 @@ public class Studys {
 			}
 			System.out.println("");// 한줄내리기(줄바꿈)
 		}
-
-		
-		/*
+	
 		int i = 0;
 		int count = 10;
 		
@@ -53,7 +60,30 @@ public class Studys {
 				System.out.println(num);
 			num++;
 		}
-		*/
+	}
+}*/
+
+public class Studys {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int num = 2000;
+		boolean flag = false;
+
+		for(int i = 0; i < num; i++) {
+			flag = false;
+			
+			for(int j = 2; j < i - 1; j++)
+			{
+				if(i % j == 0) {
+					flag = true;
+					break;
+				}
+			}
+			
+			if(!flag)
+				System.out.println(i);
+		}
 		
 	}
 
