@@ -39,3 +39,35 @@ public class Common {
 	}
 
 }
+
+/*
+public class Common {
+	   int X,Y,A,a1;
+	   Common2(){
+	      
+	   }
+	   Common2(int x,int y){
+	      this.X=x;
+	      this.Y=y;
+	      this.a1=1;
+	      this.A=2;
+	   }
+
+	   void find2Number() {
+	      // 최대공약수/최소공배수 계산
+	      for(int i; A<(i=(X<Y)?X:Y); A++) {
+	         if(X%A==0 && Y%A==0) {
+	            a1*=A;
+	            X=X/A; Y=Y/A;
+	         }
+	      }
+	   }
+	   void showGCF() { // 최대공약수
+	      System.out.println("최대공약수:"+a1);
+	   }
+	   void showLCM() { //최소공배수
+	      System.out.println("최소공배수:"+a1*X*Y);
+	   }
+	   
+	}
+*/
