@@ -1,31 +1,53 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.io.*;
+import java.util.*;
 
 public class Menu {
-	ArrayList<String> alMenu;
-	ArrayList<Integer> alPrice;
+	private ArrayList<String> alMenu;
+	private ArrayList<Integer> alPrice;
+	
+	public ArrayList<String> getAlMenu() {
+		return alMenu;
+	}
 
+	public void setAlMenu(ArrayList<String> alMenu) {
+		this.alMenu = alMenu;
+	}
+
+	public ArrayList<Integer> getAlPrice() {
+		return alPrice;
+	}
+
+	public void setAlPrice(ArrayList<Integer> alPrice) {
+		this.alPrice = alPrice;
+	}
+	
 	public Menu(){
 		alMenu = new ArrayList<String>();
 		alPrice = new ArrayList<Integer>();
 	
-		alMenu.add("Americano");
-		alPrice.add(2000);
-		
-		alMenu.add("Latte");
-		alPrice.add(3000);
-		
-		alMenu.add("Mocca");
-		alPrice.add(3500);
-		
-		alMenu.add("Expresso");
-		alPrice.add(2500);
-		
-		alMenu.add("Cappuccino");
-		alPrice.add(4000);
+		File f = new File("C:\\Temp\\menu.txt");
+		try {
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			
+			try {
+				String line=br.readLine();
+				while(line!=null) {
+					System.out.println(line);
+				}
+			} 
+			catch (IOException e) {
+				e.printStackTrace();
+			}
+		} 
+		catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void Display() {
+		System.out.println("---------- 메 뉴 목 록 ----------");
+		
 		for (int i = 0; i < alMenu.size(); i++) {
 			System.out.println((i+1) + ". " + alMenu.get(i) + " " + alPrice.get(i));
 		} 
@@ -52,10 +74,35 @@ public class Menu {
 		alPrice.remove(idx-1);
 	}
 	
+	private void SaveMenu() {
+		File f = new File("C:\\Temp\\menu.txt");
+		
+		try {
+			FileWriter fw = new FileWriter(f);
+			PrintWriter pw = new PrintWriter(fw);
+		
+			for (int i = 0; i < alMenu.size(); i++) {
+				pw.print(alMenu.get(i) + "," + alPrice.get(i) + "\n");
+			}
+			
+			pw.close();
+		} 
+		catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	public void Handle() {
 		Scanner s = new Scanner(System.in);
+		int idx;		
+
+		System.out.println("작업을 선택하시오.(X:종료, C:메뉴추가, U:메뉴수정, D:메뉴삭제)");
 		String sch = s.nextLine();
-		int idx;
 		
 		while (!sch.equals("X")) {
 			if (sch.equals("C")) {
@@ -85,6 +132,8 @@ public class Menu {
 			}
 			
 			Display();
+			
+			System.out.println("작업을 선택하시오.(X:종료, C:메뉴추가, U:메뉴수정, D:메뉴삭제)");
 			sch = s.nextLine();
 		}
 	}

@@ -22,7 +22,7 @@ public class CafeControl {
 				order.Handle();
 			} 
 			else if (str.equals("S")) {
-				System.out.println("실적관리");
+				order.DisplayA();
 			}
 			
 			System.out.println("작업을 선택하시오.(X:종료,M:메뉴관리,O:주문관리,S:실적관리)");
