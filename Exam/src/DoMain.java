@@ -4,6 +4,7 @@ public class DoMain {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//Car car = new Car();
+		/*
 		Common common1 = new Common(12, 18);
 		
 		common1.showGCF();
@@ -13,6 +14,7 @@ public class DoMain {
 		
 		common2.showGCF();
 		common2.showLCM();
+		*/
 	}
 
 }
