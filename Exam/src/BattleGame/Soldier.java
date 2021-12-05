@@ -1,40 +1,39 @@
 package BattleGame;
 
 public class Soldier {
-	private int attack_power;
-	private int health_point;
+	private int AP;
+	private int HP;
 
 	public Soldier() {
+		
 	}
 
-	public Soldier(int attack_power, int health_point) {
-		this.attack_power = attack_power;
-		this.health_point = health_point;
+	public Soldier(int AP, int HP) {
+		this.AP = AP;
+		this.HP = HP;
 	}
 
-	public int getAttack_power() {
-		return attack_power;
+	public int getAP() {
+		return AP;
 	}
 
-	public void setAttack_power(int attack_power) {
-		this.attack_power = attack_power;
+	public void setAP(int AP) {
+		this.AP = AP;
 	}
 
-	public int getHealth_point() {
-		return health_point;
+	public int getHP() {
+		return HP;
 	}
 
-	public void setHealth_point(int health_point) {
-		this.health_point = health_point;
-	}
-
-	public void setHealthPoint(int attackPoint) {
-		this.health_point -= attackPoint;
+	public void setHP(int AP) {
+		this.HP -= AP;
+		System.out.println("병사의 남은 체력 : " + this.HP);
 	}
 
 	public void attack(Warrior w) {
-		int attackPoint = (int) (Math.random() * this.attack_power);
-		w.setHealthPoint(attackPoint);
+		int AP = (int) (Math.random() * this.AP);
+		System.out.println("병사의 공격력 : " + AP);
+		w.setHP(AP);
 	}
 
 }
