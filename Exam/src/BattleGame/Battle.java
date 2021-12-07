@@ -11,7 +11,7 @@ public class Battle {
 		int random;
 		while (commando.getHP() > 0 && conan.getHP() > 0) {
 			try {
-				random = (Math.random() * 2);
+				random = (int) (Math.random() * 2);
 				System.out.println(random);
 				
 				if (random == 0) {
@@ -28,11 +28,11 @@ public class Battle {
 		}
 
 		if (commando.getHP() > conan.getHP())
-			System.out.println("ÄÚ¸¸µµ°¡ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì°ï¿½ï¿½ï¿½Ï´ï¿½.");
 		else if (commando.getHP() < conan.getHP())
-			System.out.println("ÄÚ³­ÀÌ ÀÌ°å½À´Ï´Ù.");
+			System.out.println("ï¿½Ú³ï¿½ï¿½ï¿½ ï¿½Ì°ï¿½ï¿½ï¿½Ï´ï¿½.");
 		else
-			System.out.println("µÑ ´Ù Á×¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ ï¿½ï¿½ ï¿½×¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 
 	}
 
