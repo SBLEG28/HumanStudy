@@ -6,7 +6,7 @@ public class DoMain {
 		// TODO Auto-generated method stub
 		Thread thread1 = new BeepTask();
 		thread1.start();
-		
+ 
 		Thread thread2 = new Fibonacci();
 		thread2.start();
 		
