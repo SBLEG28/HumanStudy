@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlusServlet
+ * Servlet implementation class multiServlet
  */
-@WebServlet("/PlusServlet")
-public class PlusServlet extends HttpServlet {
+@WebServlet("/multiServlet")
+public class multiServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlusServlet() {
+    public multiServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,18 @@ public class PlusServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		
-		String str1 = request.getParameter("num1");
-		String str2 = request.getParameter("num2");
-		
-		int num1 = 20;
-		int num2 = 10;
-		int add = num1 + num2;
+		String str1[] = request.getParameterValues("item");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title>asdasd</title></head>");
 		out.println("<body>");
-		out.println(num1 + "+" +  num2 + "=" + add);
+		
+		for(String str : str1)
+			out.println(str + "<br>");
+		
 		out.println("</body></html>");
 	}
 
@@ -55,4 +51,5 @@ public class PlusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }

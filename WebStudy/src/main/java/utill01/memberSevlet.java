@@ -10,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class PlusServlet
+ * Servlet implementation class memberSevlet
  */
-@WebServlet("/PlusServlet")
-public class PlusServlet extends HttpServlet {
+@WebServlet("/memberSevlet")
+public class memberSevlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PlusServlet() {
+    public memberSevlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -29,22 +29,48 @@ public class PlusServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		//response.getWriter().append("Served at: ").append(request.getContextPath());
-		
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=utf-8");
 		
-		String str1 = request.getParameter("num1");
-		String str2 = request.getParameter("num2");
+		String name = request.getParameter("name");
+		String gender = request.getParameter("gender");
+		String id = request.getParameter("userid");
+		String psw1 = request.getParameter("psw1");
+		String psw2 = request.getParameter("psw2");
+		String mobile = request.getParameter("mobile");
 		
-		int num1 = 20;
-		int num2 = 10;
-		int add = num1 + num2;
+		String inter[] = request.getParameterValues("interest");
 		
 		PrintWriter out = response.getWriter();
 		out.println("<html><head><title>asdasd</title></head>");
 		out.println("<body>");
-		out.println(num1 + "+" +  num2 + "=" + add);
+		
+		out.println("실명 : ");
+		out.println(name + "<br>");
+		
+		out.println("성별 : ");
+		out.println(gender + "<br>");
+		
+		out.println("아이디 : ");
+		out.println(id + "<br>");
+		
+		out.println("비밀번호 : ");
+		out.println(psw1 + "<br>");
+		
+		out.println("비밀번호확인 : ");
+		out.println(psw2 + "<br>");
+		
+		out.println("모바일번호 : ");
+		out.println(mobile + "<br>");
+		
+		out.println("관심분야 : ");
+		for(int i = 0; i < inter.length; i++) {
+			if(i == inter.length-1)
+				out.println(inter[i] + "<br>");
+			else
+				out.println(inter[i] + ", ");
+		}
+		
 		out.println("</body></html>");
 	}
 
@@ -55,4 +81,5 @@ public class PlusServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
+
 }
