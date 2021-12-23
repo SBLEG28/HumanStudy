@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<!-- 2021.10.22 -->
+<!--
+& : anpersand (and)
+; : semi-colon
+: : colon
+# : sharp
+@ : at
+() : 소괄호 (parentheses/bracket)
+{} : 중괄호 (brace)
+<> : 화살괄호,각괄호 
+[] : 대괄호 (square bracket)
+, : comma
+. : dot
+'' : 작은 따옴표 (quetation mark)
+"" : 큰 따옴표
+% : percantage
+$ : dollar
+- : hyphen
+_ : underscore, under bar
+* : asterisk
+! : 느낌표
+~ : wave
+/ : slash
+| : bar, poll
+\ : 역슬래쉬
+-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>임수빈</title>
+
+    <style>
+        body {
+            margin:10px;
+        }
+        #TextStyle {
+            width:180px;
+            margin:0px 0px 0px 0px;
+            background-color: bisque;
+        }
+        #NumberStyle {
+            width:180px;
+            margin:0px 0px 10px 0px;
+            background-color: bisque;
+        }
+        #CheckBoxStyle {
+            width:30px;
+            margin:0px 0px 10px 0px;
+        }
+
+        #RadioBoxStyle {
+            width:30px;
+            margin:0px 0px 10px 0px;
+            background-color: violet;
+        }
+    </style>
+</head>
+<body>
+    <input type="text">     </input> <hr> <hr>
+    <input type="number">   </input> <hr ><hr>
+    <input type="password"> </input> <hr ><hr>
+    <input type="hidden">   </input> <hr> <hr>
+    
+    <hr>-- 취미(특기) <br> <br>
+    <input type="checkbox" id="CheckBoxStyle">승마</input> 
+    <input type="checkbox" id="CheckBoxStyle">수영</input>
+    <input type="checkbox" id="CheckBoxStyle">독서</input> <br>
+
+    <hr>-- 성별 <br> <br>
+    <input type="radio" name=gender id="RadioBoxStyle">남</input> 
+    <input type="radio" name=gender id="RadioBoxStyle">여</input> <br>
+
+    <hr>-- 나이 <br> <br>
+    <select size="6" multiple>
+        <option>10대</option>
+        <option>20대</option>
+        <option>30대</option>
+        <option>40대</option>
+        <option>50대</option>
+    </select>
+
+    <br> <br> <hr>
+    <button> 버튼태그 </button> &nbsp &nbsp
+
+    <input type="button" value="등록"> </input>
+    <input type="submit" value="전송"> </input>
+    <input type="reset"  value="취소"> </input>
+</body>
+</html>

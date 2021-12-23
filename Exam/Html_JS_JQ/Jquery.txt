@@ -1,0 +1,45 @@
+<script src='https://code.jquery.com/jquery-3.5.0.js'></script>    // $ is not defined
+<script src='xxxx.js></script>
+
+// 실행문(실행코드) <input, <select, <textarea
+document.getElementById('id').value=str;           $('#id').val(str);
+str=document.getElementById('id').value;	str=$('#id').val();
+
+// 이벤트 핸들러(Event Handler)
+document.getElementById('id').addEventListener('event',function(){
+});
+document.getElementById('id').addEventListener('event',funcname);
+
+$(document).on('event','#id',function(){
+});
+$(document).on('event','#id',funcname);
+
+$(document)
+.on('click','#id1',function(){})
+.on('blur','#id2',function(){})
+.on('focus','#id3',function(){})
+.on('mouseout','#id4',function(){})
+
+// radio, checkbox  
+<input type=radio name=rname, 
+<input type=checkbox name=cname
+
+$('input:radio[name=rname]').each(function(){
+    if($(this).prop('checked')){
+        return false; // ==break;
+    }
+});
+
+$('input:checkbox[name=cname]').each(function(){
+    if($(this).prop('checked')){
+         ....
+    }
+});
+
+// <select
+<option value='xxx'>yyyy</option>
+
+value : str=$('#id').val();  // <input tag와 같음
+text   : str=$('#id option:selected').text();
+          str=$('#id option:checked').text();
+

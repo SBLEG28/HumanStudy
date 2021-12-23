@@ -1,0 +1,20 @@
+table.bound {
+  border-collapse: collapse;
+  border:1px solid darkcyan;
+  height: 340px;
+  width: 230px;
+}
+table.bound td{
+  border: 1px solid darkcyan;
+  width: 80px;
+}
+
+caption{
+  background-color: burlywood;
+  border-collapse: collapse;
+  border: 1px solid sienna;
+}
+
+#selMenu, #selOrder, #selSales{
+  width: 230px;
+}

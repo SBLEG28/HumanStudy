@@ -1,0 +1,45 @@
+
+    body {
+      margin: 0 auto;
+      font-size: 24px;
+    }
+
+    h1{
+      text-align: center;
+    }
+
+    #Input_TEXT {
+      width: 180px;
+      margin: 0px 10px 10px 0px;
+      background-color: white;
+    }
+
+    #Input_BUTTON {
+      width: 60px;
+      margin: 0px 10px 10px 0px;
+      background-color: white;
+      text-align: center;
+    }
+
+    #TableStyle {
+      width: 300px;
+      border-collapse: collapse;
+      border-color: rgb(169, 172, 158);
+      border: 1px solid black;
+      margin: 0 auto;
+    }
+
+    .td_Text {
+      text-align: right;
+      font-size: 100px;
+    }
+
+    #TableStyle tr {
+      height: 50px;
+      align-content: center;
+    }
+
+    #TableStyle td {
+      font-size: 15px;
+      text-align: center;
+    }

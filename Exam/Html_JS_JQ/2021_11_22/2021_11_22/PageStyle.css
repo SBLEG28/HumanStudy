@@ -1,0 +1,32 @@
+
+    #TableStyle {
+      width: 300px;
+      border-collapse: collapse;
+      border-color: rgb(169, 172, 158);
+    }
+
+    #TableStyle td {
+      font-size: 12px;
+      text-align: left;
+    }
+
+    table.bound {
+      border-collapse: collapse;
+      border: 1px solid blue;
+      height: 380px;
+      width: 250px;
+      font-size: 13px;
+    }
+
+    td.bound {
+        border: 1px solid blue;
+    }
+
+    #selMenu,
+    #selMenu1,
+    #selOrder,
+    #selSales {
+        width: 240px;
+    }
+
+    

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="PageStyle.css">
+    <title>MULTIPLY</title>
+</head>
+
+<body>
+    <div>
+        <table id='TableStyle'>
+            <tr>
+                <td id="td_Text">FIRST</td>
+                <td><input type="number" id="first" name="first" onblur="gugudan()"></td>
+            </tr>
+            <tr>
+                <td id="td_Text">RESULT</td>
+                <td><textarea id="result" name="result" cols=22 rows=10></textarea></td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    function gugudan(){
+        num = document.getElementById('first').value;
+
+        document.getElementById('result').value = "";
+        for(i = 1; i <= 9; i++)
+            document.getElementById('result').value += num + " * " + i + " = " + (num * i) + "\n";
+    }
+</script>
+</html>

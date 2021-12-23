@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="PageStyle.css">
+    <title>Account</title>
+</head>
+
+<body>
+    <h1>회원가입</h1>
+    <table id='TableStyle'>
+        <tr>
+            <td id="td_Text">ID</td>
+            <td><input type="text" id="useid"></td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">비밀번호</td>
+            <td><input type="password" id="password1"></td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">비밀번호 확인</td>
+            <td><input type="password" id="password2"></td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">이름</td>
+            <td><input type="text" id="name"></td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">생년월일</td>
+            <td><input type="date" id="birthday" value="1900-01-01"></td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">성별</td>
+            <td>
+                <input type="radio" id="male" name="gender" value="male"> male
+                <input type="radio" id="female" name="gender" value="female"> female
+            </td>
+        </tr>
+
+        <tr>
+            <td id="td_Text">거주지역</td>
+            <td>
+                <select id="selRegion">
+                    <option value="서울">서울</option>
+                    <option value="제주">제주</option>
+                    <option value="부산">부산</option>
+                    <option value="인천">인천</option>
+                    <option value="광주">광주</option>
+                    <option value="강원도">강원도</option>
+                    <option value="경기도">경기도</option>
+                    <option value="경상남도">경상남도</option>
+                    <option value="경상북도">경상북도</option>
+                    <option value="전라남도">전라남도</option>
+                    <option value="전라북도">전라북도</option>
+                    <option value="충청남도">충청남도</option>
+                    <option value="충청북도">충청북도</option>
+                </select>
+            </td>
+        </tr>
+
+        <tr>
+            <td>관심분야</td>
+            <td>
+                <input type="checkbox" name="interest" id="politics"      value="politics">정치</input>
+                <input type="checkbox" name="interest" id="economics"     value="economics">경제</input>
+                <input type="checkbox" name="interest" id="society"       value="society">사회</input>
+                <input type="checkbox" name="interest" id="culture"       value="culture">문화</input>
+                <input type="checkbox" name="interest" id="stock"         value="stock">주식</input>
+                <input type="checkbox" name="interest" id="moneytech"     value="moneytech">제테크</input>
+                <input type="checkbox" name="interest" id="realty"        value="realty">부동산</input>
+                <input type="checkbox" name="interest" id="entertainment" value="entertainment">연예</input>
+                <input type="checkbox" name="interest" id="religion"      value="religion">종교</input>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <button id="btnCreate" name="btnCreate" >회원가입</button>
+                <button id="btnCancle" name="btnCancle" onclick="history.back()">취소</button>
+            </td>
+        </tr>
+    </table>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript" src="signin.js"></script>
+
+</html>
