@@ -1,6 +1,12 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*
+[Ctrl + 1] :Л≈░К÷╛К╔╪ Л═°Й╠╟М∙≤Й╦╟ Л°└М∙° К╟╘Л∙┬Л²└ Л═°Л▀°М∙╘К▀┬К▀╓. 
+[F3] : М≤╦Л╤°М∙° М│╢К·≤Л┼╓К┌≤ К╘■Л├▄К⌠°К╙┘ Л°└Л≈░Л└° F3Л²└ К┬└К╔╢К╘╢ М∙╢К▀╧ М│╢К·≤Л┼╓К┌≤ К╘■Л├▄К⌠°К║° Л²╢К▐≥М∙╘К▀┬К▀╓. 
+[Ctrl + t] : IinterfaceЛ²≤ К╘■Л├▄К⌠°Л≈░Л└° К▀╗Л╤∙М┌╓К╔╪ К┬└К╔╢К╘╢ InterfaceК╔╪ implements К╟⌡Л²─ М│╢К·≤Л┼╓Л²≤ К╘■Л├▄К⌠° Й╣╛М≤└К╤─ К╙┘Л╧╜Л²└ М▒°Л╤°М∙╘К▀┬К▀╓.
+[Ctrl + Shift + o(Л≤│К╛╦)] : Л·░К▐≥Л°╪К║° import М∙╢Л╓█К▀┬К▀╓.
+ */
 public class Order {
 	private ArrayList<String> CusMobile;
 	private ArrayList<String> ChMenu;
@@ -62,7 +68,7 @@ public class Order {
 
 	public void Display(String mobile) {
 		int sum = 0;
-		System.out.println("---------- аж ╧╝ ╦Я ╥о ----------");
+		System.out.println("---------- О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ ----------");
 		
 		for (int i = CusMobile.size(); i < ChMenu.size(); i++) {
 			System.out.println(mobile + " : " + ChMenu.get(i) + " " + 
@@ -71,19 +77,19 @@ public class Order {
 			sum += CuSum.get(i);
 		}
 		
-		System.out.println("---------- ця аж ╧╝ ╬в : " + sum);
+		System.out.println("---------- О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ : " + sum);
 	}
 	
 	public void Display() {
 		int idx = ChMenu.size() - 1;
 		
-		System.out.println("---------- гЖ юГ ╦ч ╢╨ ця ╬в ----------");
+		System.out.println("---------- О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ ----------");
 		System.out.println(ChMenu.get(idx) + " " + CuQty.get(idx) + " " + CuSum.get(idx));
 	}
 	
 	public void DisplayA() {
 		int sum = 0;
-		System.out.println("---------- аж ╧╝ ╦Я ╥о ----------");
+		System.out.println("---------- О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ ----------");
 		
 		for (int i = 0; i < ChMenu.size(); i++) {
 			System.out.println((i+1) + ". " +ChMenu.get(i) + " " + CuQty.get(i) + " " + CuSum.get(i));
@@ -91,7 +97,7 @@ public class Order {
 			sum += CuSum.get(i);
 		}
 		
-		System.out.println("---------- ця аж ╧╝ ╬в : " + sum);
+		System.out.println("---------- О©╫О©╫ О©╫О©╫ О©╫О©╫ О©╫О©╫ : " + sum);
 	}
 	
 	/*
@@ -117,7 +123,7 @@ public class Order {
 		String mobile = "";
 		int men_idx, qty;
 		
-		System.out.println("юш╬Вю╩ ╪╠ецго╫ц©ю.(X:а╬╥А, C:аж╧╝цъ╟║, U:аж╧╝╪Жа╓, D:аж╧╝╩Ха╕)");
+		System.out.println("О©╫ш╬О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫о╫ц©О©╫.(X:О©╫О©╫О©╫О©╫, C:О©╫ж╧О©╫О©╫ъ╟О©╫, U:О©╫ж╧О©╫О©╫О©╫О©╫О©╫, D:О©╫ж╧О©╫О©╫О©╫О©╫О©╫)");
 		String sch = s.nextLine();
 		
 		menu.Display();
@@ -125,22 +131,22 @@ public class Order {
 		while (!sch.equals("X")) {
 
 			if (sch.equals("C")) {
-				System.out.println("аж╧╝гр ╦ч╢╨╧Ьхё╦╕ ют╥бго╫ц©ю. (0:аж╧╝а╬╥А)");
+				System.out.println("О©╫ж╧О©╫О©╫О©╫ О©╫ч╢О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫. (0:О©╫ж╧О©╫О©╫О©╫О©╫О©╫)");
 				sch = s.nextLine();
 				
 				while (!sch.equals("0")) {
 					men_idx = Integer.parseInt(sch);
 
-					System.out.println("аж╧╝ ╪Ж╥╝ю╩ ют╥бго╫ц©ю.");
+					System.out.println("О©╫ж╧О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 					qty = Integer.parseInt(s.nextLine());
 					
 					Add(menu, --men_idx, qty);
 
-					System.out.println("аж╧╝гр ╦ч╢╨╧Ьхё╦╕ ют╥бго╫ц©ю. (0:аж╧╝а╬╥А)");
+					System.out.println("О©╫ж╧О©╫О©╫О©╫ О©╫ч╢О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫. (0:О©╫ж╧О©╫О©╫О©╫О©╫О©╫)");
 					sch = s.nextLine();
 				}
 				
-				System.out.println("╟М╟╢╧Ьхё╦╕ ют╥бго╫ц©ю.");
+				System.out.println("О©╫О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 				mobile = s.nextLine().equals("") ? "-" : mobile;
 				
 				Display(mobile);
@@ -148,24 +154,24 @@ public class Order {
 			} 
 			/*
 			else if (sch.equals("U")) {
-				System.out.println("аж╧╝╪Жа╓");
-				System.out.println("╪Жа╓(╨╞╟Ф)гр аж╧╝╧Ьхё╦╕ ют╥бго╫ц©ю.");
+				System.out.println("О©╫ж╧О©╫О©╫О©╫О©╫О©╫");
+				System.out.println("О©╫О©╫О©╫О©╫(О©╫О©╫О©╫О©╫)О©╫О©╫ О©╫ж╧О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 				idx = Integer.parseInt(s.nextLine());
 				
-				System.out.println("╩У╥н аж╧╝гр ╦ч╢╨╧Ьхё╦╕ ют╥бго╫ц©ю.");
+				System.out.println("О©╫О©╫О©╫О©╫ О©╫ж╧О©╫О©╫О©╫ О©╫ч╢О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 				idx2 = Integer.parseInt(s.nextLine());
 				
-				System.out.println("╩У╥н аж╧╝гр ╪Ж╥╝ю╩ ют╥бго╫ц©ю.");
+				System.out.println("О©╫О©╫О©╫О©╫ О©╫ж╧О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 				qty = Integer.parseInt(s.nextLine());
 
-				System.out.println("╟М╟╢╧Ьхё╦╕ ют╥бго╫ц©ю.");
+				System.out.println("О©╫О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 				mobile = s.nextLine();
 				
 				Update(menu, idx--, idx2--, qty, mobile);
 			} 
 			else if (sch.equals("D")) {
-				System.out.println("аж╧╝╩Ха╕");
-				System.out.println("╩Ха╕гр аж╧╝╧Ьхё╦╕ ют╥бго╫ц©ю.");
+				System.out.println("О©╫ж╧О©╫О©╫О©╫О©╫О©╫");
+				System.out.println("О©╫О©╫О©╫О©╫О©╫О©╫ О©╫ж╧О©╫О©╫О©╫хёО©╫О©╫ О©╫т╥О©╫О©╫о╫ц©О©╫.");
 
 				idx = Integer.parseInt(s.nextLine());
 				Remove(idx--);
@@ -175,7 +181,7 @@ public class Order {
 			menu.Display();
 			mobile = "";
 			
-			System.out.println("юш╬Вю╩ ╪╠ецго╫ц©ю.(X:а╬╥А, C:аж╧╝цъ╟║, U:аж╧╝╪Жа╓, D:аж╧╝╩Ха╕)");
+			System.out.println("О©╫ш╬О©╫О©╫О©╫ О©╫О©╫О©╫О©╫О©╫о╫ц©О©╫.(X:О©╫О©╫О©╫О©╫, C:О©╫ж╧О©╫О©╫ъ╟О©╫, U:О©╫ж╧О©╫О©╫О©╫О©╫О©╫, D:О©╫ж╧О©╫О©╫О©╫О©╫О©╫)");
 			sch = s.nextLine();
 		}
 		
