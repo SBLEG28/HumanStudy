@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<!--
+& : anpersand (and)
+; : semi-colon
+: : colon
+# : sharp
+@ : at
+() : 소괄호 (parentheses/bracket)
+{} : 중괄호 (brace)
+<> : 화살괄호,각괄호 
+[] : 대괄호 (square bracket)
+, : comma
+. : dot
+'' : 작은 따옴표 (quetation mark)
+"" : 큰 따옴표
+% : percantage
+$ : dollar
+- : hyphen
+_ : underscore, under bar
+* : asterisk
+! : 느낌표
+~ : wave
+/ : slash
+| : bar, poll
+\ : 역슬래쉬
+-->
+
+<!-- 
+  Ctrl + K + C : 주석
+  Ctrl + K + F : 정렬
+  Shift + Alt  : 세로끌기 
+-->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="20211026_Style.css">
+
+  <title>임수빈</title>
+
+</head>
+
+<body>
+  <!--<a href="20211022_web2.html">web2</a>-->
+  <!--
+    <ul>
+        <li>A</li>
+        <li>B</li>
+        <li>C</li>
+        <li>D</li>
+    </ul>
+
+    <ol>
+        <li>Remove the skin from the garlic, and chop coarsely.</li>
+        <li>Remove all the seeds and stalk from the pepper, and chop coarsely.</li>
+        <li>Add all the ingredients into a food processor.</li>
+        <li>Process all the ingredients into a paste.</li>
+        <li>If you want a coarse "chunky" hummus, process it for a short time.</li>
+        <li>If you want a smooth hummus, process it for a longer time.</li>
+      </ol>
+
+<p>
+    The Ruby-throated Hummingbird (<i>Archilochus colubris</i>)
+    is the most common hummingbird in Eastern North America.
+  </p>
+  
+  <p>
+    The menu was a sea of exotic words like <i lang="uk-latn">vatrushka</i>,
+    <i lang="id">nasi goreng</i> and <i lang="fr">soupe à l'oignon</i>.
+  </p>
+  
+  <p>
+    Someday I'll learn how to <u>spel</u> better.
+  </p>
+  
+  <ol>
+    <li>
+      <b>Slice</b> two pieces of bread off the loaf.
+    </li>
+    <li>
+      <b>Insert</b> a tomato slice and a leaf of
+      lettuce between the slices of bread.
+    </li>
+  </ol>
+
+  <p>I am <em>glad</em> you weren't <em>late</em>.</p>
+  <p>I am <strong>glad</strong> you weren't <strong>late</strong>.</p>
+
+  <p>I'm creating a link to
+      <a href="https://www.mozilla.org/en-US/">the Mozilla homepage</a>.</p>
+    -->
+
+  <ul>
+    <li><a href="Homepage.html">Homepage</a></li>
+    <li><a href="Projects.html">Projects</a></li>
+    <li><a href="Pictures.html">Pictures</a></li>
+    <li><a href="Social.html">Social</a></li>
+  </ul>
+
+  <table id='TableStyle'>
+    <th>이름</th>
+    <th>성별</th>
+    <th>생일</th>
+    <th>지역</th>
+
+    <tr>
+      <td>1.1</td>
+      <td>1.2</td>
+      <td>1.3</td>
+      <td>1.4</td>
+    </tr>
+    <tr>
+      <td>2.1</td>
+      <td>2.2</td>
+      <td>2.3</td>
+      <td>2.4</td>
+    </tr>
+  </table>
+
+
+  <table style="border-collapse: collapse; border: 1px solid black; margin-top: 5px;">
+    <th>이름</th>
+    <th>성별</th>
+    <th>생일</th>
+    <th>지역</th>
+
+    <tr>
+      <td class="brd1">1.1</td>
+      <td class="brd2">1.2</td>
+      <td class="brd1">1.3</td>
+      <td class="brd2">1.4</td>
+    </tr>
+    <tr>
+      <td class="brd2">2.1</td>
+      <td class="brd1">2.2</td>
+      <td class="brd2">2.3</td>
+      <td class="brd1">2.4</td>
+    </tr>
+  </table>
+
+  <table id='TableStyle'>
+    <thead>
+      <th>Name</th>
+      <th>Gender</th>
+      <th>Age</th>
+      <th>State</th>
+      <th>City</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ABC</td>
+        <td rowspan="3">Female</td>
+        <td>20</td>
+        <td colspan="2">Seoul</td>
+      </tr>
+      <tr>
+        <td>DEF</td>
+        <td>22</td>
+        <td>bsdasd</td>
+        <td>ERcfsda</td>
+      </tr>
+      <tr>
+        <td>ZIR</td>
+        <td>25</td>
+        <td>GEGVdsf</td>
+        <td>SETRWE</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table id='TableStyle2'>
+    <thead>
+      <th colspan="4" rowspan="4">A</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="2" colspan="2">B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>F</td>
+      </tr>
+    </tbody>
+  </table>
+
+  
+  <table id='TableStyle2'>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>2</td>
+        <td colspan="2" rowspan="2">5</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>4</td>
+      </tr>
+      <tr>
+        <td colspan="2" rowspan="2">B</td>
+        <td>C</td>
+        <td>D</td>
+      </tr>
+      <tr>
+        <td>E</td>
+        <td>F</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse</title>
+</head>
+
+<body>
+    <input type=text id=str1><br>
+    <input type=text id=str2><br><br>
+    <input type=button id=btnReverse value='거꾸로'>
+</body>
+<script>
+    // "Hello World" -> "dlroW olleH"
+    // "Good Morning, Vietnam" -> "manteiV ,gninroM dooG"
+    //내가 한 방법
+    // document.getElementById("btnReverse").addEventListener('click', btnReverse);
+
+    // function btnReverse() {
+    //     let str1, str2 ="";
+    //     str1 = document.getElementById('str1').value;
+    //     for (n = str1.length; n >= 0; n--) {
+    //         str2 += str1.substr(n, 1);
+    //     }
+    //     document.getElementById('str2').value = str2;
+    // }
+
+//배열 순서로 하는법
+document.getElementById("btnReverse").addEventListener('click', function() {
+    let str1, str2 ="";
+    str1 = document.getElementById('str1').value;
+    for (n = str1.length-1; n >= 0; n--) {
+        str2 += str1[n];
+    }
+    document.getElementById('str2').value = str2;
+});
+
+
+</script>
+
+</html>

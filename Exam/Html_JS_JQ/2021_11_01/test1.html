@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        var table_S = "<table><tr><td style = 'border-collapse: collapse; border: 1px solid ";
+        var table_E = "'>Hello World!</td></tr></table>";
+
+        var input = parseInt(prompt("숫자를 입력하시오."));
+
+        if(input == ColorEnum.RED)
+            document.write(table_S + color1 + table_E);
+        else if(input == ColorEnum.BLUE)
+            document.write(table_S + color2 + table_E);
+        else if(input == ColorEnum.MAGENTA)
+            document.write(table_S + color3 + table_E);
+        else if(input == ColorEnum.GREED)
+            document.write(table_S + color4 + table_E);
+        else 
+            document.write(table_S + color5 + table_E);
+    </script> -->
+
+    <!-- 
+    <script>
+        var ColorArry = ["BLACK", "RED", "BLUE", "MAGENTA", "GREEN"]; 
+
+        var table_S = "<table><tr><td style = 'border-collapse: collapse; border: 1px solid ";
+        var table_E = "'>Hello World!</td></tr></table>";
+
+        var input = parseInt(prompt("숫자를 입력하시오."));
+
+        var str = ColorArry.length <= input ? ColorArry[0] : ColorArry[input];
+        document.write(table_S + str + table_E);
+    </script> -->
+
+    <!-- <script>
+            var ColorArry = ["BLACK", "RED", "BLUE", "MAGENTA", "GREEN"];
+    
+            var table_S = "<table><tr><td style = '";
+            var table_E = "'>Hello World!</td></tr></table>";
+    
+            var background = "background-color: ";
+            var font_color = "; color: "
+    
+            var input1 = prompt("배경색 색상값을 입력하시오.");
+            var input2 = prompt("글자체 색상값을 입력하시오.");
+    
+            input1 = ColorArry.length <= input1 ? ColorArry[0] : ColorArry[input1];
+            input2 = ColorArry.length <= input2 ? ColorArry[0] : ColorArry[input2];
+    
+            // if (ColorArry.length <= input1)
+            //     input1 = ColorArry[0];
+            // else
+            //     input1 = ColorArry[input1];
+    
+            // if (ColorArry.length <= input2)
+            //     input2 = ColorArry[0];
+            // else
+            //     input2 = ColorArry[input2];
+    
+            document.write(table_S + background + input1 + font_color + input2 + table_E);
+        </script> -->
+    
+    <!-- <script>
+            //var BeverArry = ["없는번호", "포도", "오렌지", "환타"]; 
+    
+            var input1 = prompt("넣으신 금액을 입력하시오.");
+            var input2 = prompt("마실 음료수를 선택하시오.");
+    
+            //document.write(BeverArry.length <= input2 ? BeverArry[0] + "<br>남은 금액 : " + input1 : BeverArry[input2] + "<br>남은 금액 : " + (input1 - (input2 * 100))); 
+            var bever = "";
+            var change = 0;
+    
+            if (input2 == 1) {
+                bever = "포도";
+                change = input1 - (input2 * 100);
+            }
+            else if (input2 == 2) {
+                bever = "오렌지";
+                change = input1 - (input2 * 100);
+            }
+            else if (input2 == 3) {
+                bever = "환타";
+                change = input1 - (input2 * 100);
+            }
+            else {
+                bever = "없는 번호";
+                change = input1;
+            }
+    
+            document.write(bever + "<br> 남은 금액 :" + change);
+        </script> -->
+
+    <!--     
+    <script>
+        i = 1;
+        j = 0;
+
+        while (i <= 7) {
+            while (j <= 6) {
+                document.write(i + " - " + j + "<br>");
+                j = j + 2;
+            }
+
+            i = i + 2;
+            j = 0;
+        }
+    </script> -->
+
+    <!-- <script>
+        i = 0;
+        while (true) {
+            if (i == 777) {
+                document.write("당첨<br>");
+                break;
+            }
+
+            i++;
+        }
+
+        document.write("종료");
+    </script> -->
+
+    <script>
+        i = 1;
+        sum = 0;
+
+        while (i <= 100) {
+            sum += i;
+            i++;
+        }
+
+        document.write(sum);
+
+        document.write(5 <= 20);
+        document.write(25 <= 20);
+    </script>
+    </body>
+
+</html>

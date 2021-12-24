@@ -1,0 +1,62 @@
+
+    body {
+      margin: 10px;
+    }
+
+    input {
+      width: 180px;
+      margin: 0px 10px 10px 0px;
+      background-color: bisque;
+    }
+
+    #TableStyle {
+      width: 180px;
+      border-collapse: collapse;
+      border-color: rgb(169, 172, 158);
+      border: 1px solid red;
+      margin-top: 5px;
+    }
+
+    #TableStyle th {
+      border: 1px solid red;
+    }
+
+    #TableStyle td {
+      border: 1px solid green;
+    }
+
+    .brd1 {
+      background-color: black;
+      color: wheat;
+      width: 20px;
+      height: 20px;
+    }
+
+    .brd2 {
+      background-color: black;
+      color: wheat;
+      width: 20px;
+      height: 20px;
+    }
+
+    #TableStyle2 {
+        border-collapse: collapse;
+        border-color: rgb(169, 172, 158);
+        background-color: white;
+        border: 1px solid black;
+        margin-top: 5px;
+      }
+  
+      #TableStyle2 th {
+        border: 1px solid black;
+        height: 100px;
+        width: 100px;
+        text-align: center;
+      }
+  
+      #TableStyle2 td {
+        border: 1px solid black;
+        height: 50px;
+        width: 50px;
+        text-align: center;
+      }

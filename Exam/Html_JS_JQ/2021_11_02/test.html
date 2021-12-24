@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <script>
+        var a = 0, b = 0, c = 0;
+
+        while((b + c) <= 1000)
+        {
+            if(a == 0) a = 1;
+            else       a = b;
+
+            if(b == 0) b = 1;
+            else       b = c;
+
+            c = a + b;
+
+            document.write("a : " + a + ",  b : " + b + ",  c : " + c + "<br>");
+        }
+    </script> -->
+
+    <!-- <script>
+        var a = 0, b = 0;
+
+        for (i = 1; i <= 1000; i = a + b) {
+            if (a == 0) a = 1;
+            else a = b;
+
+            if (b == 0) b = 1;
+            else b = i;
+
+            document.write("a : " + a + ",  b : " + b + ",  c : " + i + "<br>");
+        }
+    </script> -->
+    <!-- 
+    <script>
+        for (i = 2; i <= 100; i++) {
+            count = 0;
+            for (j = 1; j < i; j++) {
+                //document.write(i + " " + j + " " + i%j + "<br>");
+                if (i % j == 0) {
+                    count++;
+                    break;
+                }
+            }
+
+            if (count == 1)
+                document.write("소수 = " + i + "<br>");
+        }
+    </script>
+
+    <script>
+        for (var i = 2; i <= 100; i++) {
+
+            var j = 0;
+            for (j = i - 1; j > 1; j--) {
+                if (i % j == 0)
+                    break;
+            }
+
+            if (j == 1)
+                document.write("소수 = " + i + "<br>");
+        }
+    </script> -->
+
+    <script>
+        function plus(parm1, parm2)
+        {
+            return parm1 + parm2;
+        }
+
+        function accum(parm1)
+        {
+            sum = 0;
+            for(i = 1; i <= parm1; i++)
+                sum += i;
+
+            return sum;
+        }
+
+        document.write(plus(5, 12) + "<br>");
+        document.write(accum(12) + "<br>");
+    </script>
+</body>
+
+</html>
