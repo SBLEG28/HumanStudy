@@ -20,7 +20,8 @@
 	</tr>
 	<tr>
 		<td>operator</td>
-		<td><select name = "oper">
+		<td>
+			<select name = "oper">
 				<option value="+">+</option>
 				<option value="-">-</option>
 				<option value="*">*</option>
