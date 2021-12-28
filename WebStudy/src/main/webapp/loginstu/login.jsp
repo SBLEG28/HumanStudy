@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="GET" action="login_check.jsp">
+	<form method="GET" action="login_check.jsp" id="frmLogin">
 		<h2>로그인</h2>
 		<table>
 			<tr>
@@ -21,22 +21,21 @@
 			</tr>
 
 			<tr>
-				<td colspan=2><input type="submit" value="로그인"> <input
-					type="button" value="취소" onclick="location.href='home.jsp'"></td>
+				<td colspan=2>
+				<input type="submit" value="로그인"> 
+				<!-- <input type="button" value="로그인" name="btnLogin"> -->
+				<input type="button" value="취소" onclick="location.href='home.jsp'"></td>
 			</tr>
 
 			<tr>
 				<td colspan=2><a href="signon.jsp">회원가입</a></td>
 			</tr>
 		</table>
-		
-		<%
-			String aid = request.getParameter("userid");
-			String apw = request.getParameter("psw1");
-			
-			out.print("uid:"+ aid+"<br>");
-			out.print("pw:" + apw +"<br>");
-		%>
 	</form>
 </body>
+
+<!--  
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript" src="login_check_.js"></script>
+-->
 </html>

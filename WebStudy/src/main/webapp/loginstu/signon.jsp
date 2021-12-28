@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="GET" action="sign_check.jsp">
+	<form method="GET" action="sign_check.jsp" id="frmSign">
 		<table>
 			<tr>
 				<td>실명 :</td>
@@ -43,11 +43,17 @@
 			</tr>
 			<tr>
 				<td colspan=4 align=center>
-					<input type="submit" value="가입완료">
+					<!--<input type="submit" value="가입완료">-->
+					<input type="button" value="로그인" name="btnSign">
 					<input type="button" value="취소" onclick="location.href='home.jsp'">
 				</td>
 			</tr>
 		</table>
 	</form>
 </body>
+
+<!--  
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script type="text/javascript" src="sign_check.js"></script>
+-->
 </html>

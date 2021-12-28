@@ -16,8 +16,9 @@
 	for (String str : str1)
 		str2 += str + "<br>";
 	%>
-	
-	* 선 택 목 록 *<br>
-	<%=str2 %>
+
+	* 선 택 목 록 *
+	<br>
+	<%=str2%>
 </body>
 </html>

@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%--<%@page import="java.net.URLEncoder"%>--%>
+	
 	<%!public boolean NullCheck(String str) {
 		return str.equals("") || str == null ? true : false;
 	}
@@ -18,55 +20,55 @@
 	<%
 	String id = request.getParameter("uid");
 	String pw = request.getParameter("pw");
-	
+
 	String aid = request.getParameter("userid");
 	String apw = request.getParameter("psw1");
-	
-	out.print("uid:"+ aid+"<br>");
-	out.print("pw:" + apw +"<br>");
-	
+
+	out.print("uid:" + aid + "<br>");
+	out.print("pw:" + apw + "<br>");
+
 	if (NullCheck(id)) {
 	%>
 	<script>
 		alert("아이디를 입력하지 않았습니다.");
-		//history.back();
+		history.back();
 	</script>
 	<%
 	return;
 	} else {
-		if(!id.equals("123")){
-			%>
-			<script>
-				alert("해당 아이디가 존재하지 않습니다.");
-				//history.back();
-			</script>
-			<%
-			return;
-		}
+	if (!id.equals("123")) {
+	%>
+	<script>
+		alert("해당 아이디가 존재하지 않습니다.");
+		history.back();
+	</script>
+	<%
+	return;
+	}
 	}
 
 	if (NullCheck(pw)) {
 	%>
 	<script>
 		alert("비밀번호를 입력하지 않았습니다.");
-		//history.back();
+		history.back();
 	</script>
 	<%
 	return;
 	} else {
-		if(!pw.equals("123")){
-			%>
-			<script>
-				alert("비밀번호가 틀립니다.");
-				//history.back();
-			</script>
-			<%
-			return;
-		}
-		else{
-			RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
-			rd.forward(request, response);
-		}
+	if (!pw.equals("123")) {
+	%>
+	<script>
+		alert("비밀번호가 틀립니다.");
+		history.back();
+	</script>
+	<%
+	return;
+	} else {
+	RequestDispatcher rd = request.getRequestDispatcher("home.jsp");
+	rd.forward(request, response);
+	//response.sendRedirect("home.jsp?uid="+ URLEncoder.encode(id, "UTF-8"));
+	}
 	}
 	%>
 </body>
