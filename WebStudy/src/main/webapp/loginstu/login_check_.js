@@ -28,7 +28,8 @@ $(document)
 			return false;
 		}
 		else {
-			document.location = "home.jsp";
+			return true;
+			//document.location = "home.jsp";
 		}
 	}
 });

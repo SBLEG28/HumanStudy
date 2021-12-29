@@ -50,6 +50,7 @@ $(document)
 			history.back();
 			return false;
 		} else {
-			document.location = "login.jsp";
+			return true;
+			//document.location = "login.jsp";
 		}
 	});
