@@ -44,6 +44,7 @@ public class select extends HttpServlet {
       String passcode="human123";
       
       String sql="SELECT ROOMCODE, NAME, TO_CHAR(HOWMUCH, '999,999,999,999') HOWMUCH, HOWMANY, TYPE FROM ROOM ORDER BY ROOMCODE";
+      
       try {
          Class.forName("oracle.jdbc.driver.OracleDriver");
          conn=DriverManager.getConnection(url,userid,passcode); // null if connection failed.
