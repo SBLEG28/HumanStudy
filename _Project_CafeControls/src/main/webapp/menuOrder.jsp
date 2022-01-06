@@ -192,7 +192,7 @@
 					<div class="bottomfloat">
 						상품금액 총액 : 1000원
 						<hr width="100%" align="left">
-						<button>주문하기</button>
+						<button>담기</button>
 					</div>
 				</div>
 			</div>
@@ -202,6 +202,8 @@
 		<!--  주 문 내 역 -->
 		<div class="bottomfloat">
 			<h1>주 문 내 역</h1>
+			<button>주문취소</button>
+			<button>주문완료</button>
 			<div class="topfloat"></div>
 
 			<div class="bottonfloat"></div>
