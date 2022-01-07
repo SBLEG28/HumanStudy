@@ -2,30 +2,25 @@ document.write("<script src='Common.js'></script>");
 
 $(document)
 .on("submit", "#frmLogin", function() {
-	let id = $('#uid').val();
-	let pw = $('#pw').val();
-
-	if (NullCheck(id)) {
-		alert("아이디를 입력하지 않았습니다.");
-		return false;
+	let rcd = $('#ROOMCODE').val();
+	let nm = $('#NAME').val();
+	let tp = $('#TYPE').val();
+	let hmy = $('#HOWMANY').val();
+	let hmh = $('#HOWMUCH').val();
+	
+	if (NullCheck(rcd)) {
+		return 1;
 	} else {
-		if (id != "123") {
-			alert("해당 아이디가 존재하지 않습니다.");
-			return false;
+		if ((!NullCheck(rcd)) && NullCheck(nm) && NullCheck(tp) && NullCheck(hmy) && NullCheck(hmh)) {
+			return 2;
+		}
+		else if((!NullCheck(rcd)) && (!NullCheck(nm)) && (!NullCheck(tp)) && 
+				(!NullCheck(hmy)) && (!NullCheck(hmh))){
+			return 3
+		}
+		else{
+
 		}
 	}
 
-	if (NullCheck(pw)) {
-		alert("비밀번호를 입력하지 않았습니다.");
-		return false;
-	} else {
-		if (pw != "123") {
-			alert("비밀번호가 틀립니다.");
-			return false;
-		}
-		else {
-			return true;
-			//document.location = "home.jsp";
-		}
-	}
 });

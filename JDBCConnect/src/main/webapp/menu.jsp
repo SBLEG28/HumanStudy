@@ -5,7 +5,6 @@
 <%!Connection conn = null;
 	Statement stmt = null;
 	ResultSet rs = null;
-	PreparedStatement pstmt = null;
 
 	String url = "jdbc:oracle:thin:@localhost:1521:orcl";
 	String id = "ora_user";
@@ -21,6 +20,7 @@
 table {
 	border-collapse: collapse;
 }
+
 td {
 	border: 1px solid blue;
 }
@@ -28,34 +28,43 @@ td {
 
 <body>
 	<table>
+		<thead>
+			<tr>
+				<th>메뉴명</th>
+				<th>가격</th>
+			<tr>
 		<%
-		String sql = "INSERT INTO MENU VALUES('?', ?)";
+		String sql = "SELECT * FROM MENU ORDER BY NAME";
 		
 		try {
-			if(request.getParameter("menu") = null || request.getParameter("price") == null){
-				out.print("적절한 값이 주어지지 않았습니다.");
-				return;
-			}
 			
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(url, id, pw);
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, request.getParameter("menu"));
-			pstmt.setString(2, request.getParameter("price"));
-			
-			pstmt.executeUpdate();
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while (rs.next()) {
+				String name   = rs.getString("NAME");
+				int price = rs.getInt("PRICE");
+
+				out.print("<tr>");
+				out.print("<td>" + name + "</td>");
+				out.print("<td>" + price + "</td>");
+				out.print("</tr>");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (pstmt != null)
-				pstmt.close();
+			if (rs != null)
+				rs.close();
+			if (stmt != null)
+				stmt.close();
 			if (conn != null)
 				conn.close();
-			
-			request.getRequestDispatcher("view_student.jsp").forward(request, response);
 		}
 		%>
+			
+		</thead>
 	</table>
 </body>
 </html>

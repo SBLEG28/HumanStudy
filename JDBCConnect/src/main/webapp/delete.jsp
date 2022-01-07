@@ -29,10 +29,10 @@ td {
 <body>
 	<table>
 		<%
-		String sql = "INSERT INTO MENU VALUES('?', ?)";
+		String sql = "DELETE MENU WHERE NAME = '?'";
 		
 		try {
-			if(request.getParameter("menu") = null || request.getParameter("price") == null){
+			if(request.getParameter("NAME") = null ){
 				out.print("적절한 값이 주어지지 않았습니다.");
 				return;
 			}
@@ -41,8 +41,7 @@ td {
 			conn = DriverManager.getConnection(url, id, pw);
 			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, request.getParameter("menu"));
-			pstmt.setString(2, request.getParameter("price"));
+			pstmt.setString(1, request.getParameter("NAME"));
 			
 			pstmt.executeUpdate();
 		} catch (Exception e) {
