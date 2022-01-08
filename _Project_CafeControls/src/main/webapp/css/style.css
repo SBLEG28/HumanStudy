@@ -82,25 +82,83 @@ nav #indicator {
 }
 
 
-/* float */
-.leftfloat {
-	float: left;
-	width: 65%
+.menuclick1{
+	display: grid;
+	grid-template-rows: 3fr 0.5fr 0.5fr;
+}
+.menuclick2{
+	display: grid;
+	grid-template-columns: 0.5fr 2fr 0.5fr;
 }
 
-.rightfloat {
-	float: right;
-	width: 35%
+.display1{
+	display: grid;
+	grid-template-columns: 3fr 2fr;
 }
 
-.topfloat {
-	float: top;
-	height: 70%
+.menubox1 {
+  background: red;
+  flex: 7;
+}
+.menubox2 {
+  background: orange;
+  flex: 1;
+}
+.menubox3 {
+  background: yellow;
+  flex: 1;
+}
+.menubox4 {
+  background: #80ff80;
+  flex: 1;
 }
 
-.bottomfloat {
-	float: bottom;
-	height: 30%
+.part{
+	flex: 1;
+	align-items: center;
 }
 
-/* div */
+.headleft{
+	float:right; 
+	display:inline-block;
+    align-items: center;
+}
+
+/* table */
+.picture{
+	width: 150px;
+	height: 150px;
+}
+
+.name{
+	width:auto;
+	height: 50px;
+	font-size: medium
+}
+
+.price{
+	width:auto;
+	height: 50px;
+	font-size: medium
+}
+
+/* div */ 
+.menu{
+  min-width: 200px;
+  min-height: 100px;
+  overflow: auto;
+  margin: 5px;
+}
+
+.order{
+	margin: 8px;
+	border-collapse: collapse;
+    border: 1px solid black;
+    border-radius: aa aa aa aa;
+}
+
+
+div{
+	/*border-collapse: collapse; 
+    border: 1px solid black;*/
+}

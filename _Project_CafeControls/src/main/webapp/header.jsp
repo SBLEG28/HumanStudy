@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="orderStyle.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <div>
   <h1>Soobin's Coffee</h1>
 </div>

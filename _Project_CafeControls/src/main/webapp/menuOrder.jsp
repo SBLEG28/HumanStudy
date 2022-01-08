@@ -17,208 +17,100 @@
 </head>
 
 <body>
-	<script type="text/javascript">
-		$(function() {
-
-			var indicator = $('#indicator'), indicatorHalfWidth = indicator
-					.width() / 2, lis = $('#tabs').children('li');
-
-			$("#tabs").tabs(
-					"#content section",
-					{
-						effect : 'fade',
-						fadeOutSpeed : 0,
-						fadeInSpeed : 400,
-						onBeforeClick : function(event, index) {
-							var li = lis.eq(index), newPos = li.position().left
-									+ (li.width() / 2) - indicatorHalfWidth;
-							indicator.stop(true).animate({
-								left : newPos
-							}, 600, 'easeInOutExpo');
-						}
-					});
-
-		});
-	</script>
-
 	<header>
 		<hgroup>
 			<jsp:include page="header.jsp" />
 		</hgroup>
 	</header>
 
-	<div class="leftfloat">
-		<!-- 메뉴 목록  -->
-		<!-- 
-		1. 메뉴키
-		2. 메누명
-		3. 가격
-		4. 메뉴구분
-		 -->
-		<!--  메뉴 목록  -->
-		<div class="topfloat">
+	<div class="display1">
+		<div>
 			<!--  메뉴 출력  -->
-			<div class="topfloat">
-				<h1>메 뉴 목 록</h1>
-				<button>메뉴관리</button>
+			<div class="menubox1">
+			
+				<div class="headside">
+					<div><h1>메 뉴 목 록</h1></div>
+					<div><button>메뉴관리</button></div>
+				</div>
+				
+				<!--   메뉴 카테고리(select)   -->
 				<nav>
-					<!--   쿼리로 가져오도록 변형(메뉴는 스타벅스꺼 가져오기)   -->
-					<ul id="tabs">
-						<li><a class="current" href="#">Item 1</a></li>
-						<li><a href="#">Item 2</a></li>
-						<li><a href="#">Item 3</a></li>
-						<li><a href="#">Item 4</a></li>
-						<li><a href="#">Item 5</a></li>
-					</ul>
+					<ul id="tabs"></ul>
 					<span id="indicator"></span>
 				</nav>
 
-				<div id="content">
-					<section>
-						<!-- 객실에서 메뉴로 형태 변경  -->
-						<table id=tblRoom>
-							<thead>
-								<tr>
-									<th>객실번호</th>
-									<th>객실명</th>
-									<th>객실종류</th>
-									<th>숙박가능인원</th>
-									<th>숙박비</th>
-							</thead>
-							<tbody>
-
-							</tbody>
-						</table>
-					</section>
-
-					<section>
-						<!-- 객실에서 메뉴로 형태 변경  -->
-						<table id=tblRoom>
-							<thead>
-								<tr>
-									<th>객실번호</th>
-									<th>객실명</th>
-									<th>객실종류</th>
-									<th>숙박가능인원</th>
-									<th>숙박비</th>
-							</thead>
-							<tbody>
-
-							</tbody>
-						</table>
-					</section>
-
-					<section>
-						<!-- 객실에서 메뉴로 형태 변경  -->
-						<table id=tblRoom>
-							<thead>
-								<tr>
-									<th>객실번호</th>
-									<th>객실명</th>
-									<th>객실종류</th>
-									<th>숙박가능인원</th>
-									<th>숙박비</th>
-							</thead>
-							<tbody>
-
-							</tbody>
-						</table>
-					</section>
-
-					<section>
-						<!-- 객실에서 메뉴로 형태 변경  -->
-						<table id=tblRoom>
-							<thead>
-								<tr>
-									<th>객실번호</th>
-									<th>객실명</th>
-									<th>객실종류</th>
-									<th>숙박가능인원</th>
-									<th>숙박비</th>
-							</thead>
-							<tbody>
-
-							</tbody>
-						</table>
-					</section>
-
-					<section>
-						<!-- 객실에서 메뉴로 형태 변경  -->
-						<table id=tblRoom>
-							<thead>
-								<tr>
-									<th>객실번호</th>
-									<th>객실명</th>
-									<th>객실종류</th>
-									<th>숙박가능인원</th>
-									<th>숙박비</th>
-							</thead>
-							<tbody>
-
-							</tbody>
-						</table>
-					</section>
-				</div>
+				<!--   메뉴   -->
+				<div class="menu" id="content"></div>
 			</div>
-			<br> <br> <br>
-
+			
+			<br>
 			<!-- 메뉴 주문창 -->
-			<div class="bottomfloat">
-				<br> <br> <br> More script and css style : <a
-					href="http://www.htmldrive.net/"
-					title="HTML DRIVE - Free DHMTL Scripts,Jquery plugins,Javascript,CSS,CSS3,Html5 Library">www.htmldrive.net
-				</a>
+			<div class="menubox2" id="dis_ord">
+				<!-- http://www.htmldrive.net/	-->
+				<div class="menuclick1">
+					<div id="menuord" class="menuclick2">
+						<img class="picture" id="ord_img" />
 
-				<div class="bottomfloat">
-					<div class="topfloat">
-						<div class="leftfloat">
-							<p>메가크리스마스초코</p>
+						<div>
+							<p id="ord_name"></p>
+							<p id="ord_price"></p>
 
-							<p>휘핑</p>
-
-							<p>3,900원</p>
+							<!-- 선택 상품 총액 (수량 * 금액) -->
+							<div id="sumprice" style="float: bottom"></div>
 						</div>
 
-						<div class="rightfloat">
-							<button>삭제</button>
-							<img src="img/mius.png" alt="" />
-							<p>수량
-							<p>
-								<img src="img/plus.png" alt="" />
+						<div>
+							<div>
+								<button id="btnAdd">담기</button>
+								<button id="btnReset">비우기</button>
+							</div>
+							
+							<div>
+								<img class="part" id="mius" src="img/mius.png" />
+								<label class="part" id="quantity"></label>
+								<img class="part" id="plus" src="img/plus.png" />
+							</div>
 						</div>
-					</div>
-
-					<br> <br> <br>
-					<div class="bottomfloat">
-						상품금액 총액 : 1000원
-						<hr width="100%" align="left">
-						<button>담기</button>
 					</div>
 				</div>
 			</div>
+
+			<!--  주문내역 해더 및 버튼 -->
+			<div class="menubox3">
+				<br>
+				<h1>주 문 내 역</h1>
+				
+				<p id="sumorder">총액 :</p>
+				
+				<small>Format: 123-456-7890</small>
+				적립번호:<input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" required></input>
+				<button id="btnallreset">일괄취소</button>
+				<button id="btnorder">주문완료</button>
+			</div>
+			
+			<hr style="border: outset 5px green;">
+				
+			<!-- 주문내역 리스트 -->
+			<div class="menubox4" id="shoplist"></div>
 		</div>
 
-		<br> <br> <br>
-		<!--  주 문 내 역 -->
-		<div class="bottomfloat">
-			<h1>주 문 내 역</h1>
-			<button>주문취소</button>
-			<button>주문완료</button>
-			<div class="topfloat"></div>
-
-			<div class="bottonfloat"></div>
+		<!--  매출내역  -->
+		<div>
+			<h1>매 출 내 역</h1>
+			<button>summary</button>
 		</div>
-
 	</div>
 
-	<div class="rightfloat">
-		<h1>매 출 내 역</h1>
-		<button>summary</button>
-	</div>
-
+	<!--
 	<footer>
 		<fgroup> <jsp:include page="footer.jsp" /> </fgroup>
 	</footer>
+	-->
+	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+	<script type="text/javascript" src='Common.js'></script>
+	<script type="text/javascript" src="menuset.js"></script>
+	<script type="text/javascript" src="menuevent.js"></script>
+	<script type="text/javascript" src="orderevent.js"></script>
 </body>
 
 </html>
