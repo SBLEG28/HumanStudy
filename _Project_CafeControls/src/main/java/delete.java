@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbconn.db_sql;
+
 /**
  * Servlet implementation class delete
  */
@@ -29,38 +31,12 @@ public class delete extends HttpServlet {
     * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      Connection conn = null;
-         PreparedStatement pstmt = null;
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html, charset=utf-8");
 
-         String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // DB접속정보
-         String userid = "ora_user";
-         String passcode = "human123";
-         String sql = "delete from room where roomcode=?";
-         String result_flag = "";
-         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
-            conn = DriverManager.getConnection(url, userid, passcode);
-            pstmt = conn.prepareStatement(sql);
+		db_sql db = new db_sql();
 
-            pstmt.setInt(1, Integer.parseInt(request.getParameter("code")));
-
-
-            pstmt.executeUpdate();
-            result_flag = "OK";
-         } catch (Exception e) {
-            result_flag = "FAIL";
-            e.printStackTrace();
-         } finally {
-            try {
-               if (pstmt != null)
-                  pstmt.close();
-               if (conn != null)
-                  pstmt.close();
-            } catch (SQLException e) {
-               e.printStackTrace();
-            }
-
-         }
+		db.del_ord_menu(Integer.parseInt(request.getParameter("code")));
    }
 
    /**

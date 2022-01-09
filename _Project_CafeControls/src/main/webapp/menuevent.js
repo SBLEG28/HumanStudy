@@ -31,6 +31,20 @@
     sumPrice();
 })
 
+// 메뉴 관리_클릭
+.on("click", "#btnManage", function(){
+    $("#dgMenu").dialog({
+        width:500,
+        open:function(){
+            //SetMenu("#selMenu1");
+        },
+        close:function(){
+            loadMenu();
+            resetord();
+        }
+    });
+})
+    
 .on("click", "#btnReset", function () {
 	resetord();
 })

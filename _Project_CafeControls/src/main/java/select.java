@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbconn.db_sql;
+
 /**
  * Servlet implementation class select
  */
@@ -32,70 +34,19 @@ public class select extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		String strReturn = "";
+		db_sql db = new db_sql();
+
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html; charset=utf-8");
-
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-
-		String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // DB접속정보
-		String userid = "ora_user";
-		String passcode = "human123";
-
-		String strReturn = "";
-		String sql = "";
-		try {
-			
-			if (request.getParameter("acc").equals("menu_ctg")) {
-				sql = "SELECT * FROM MENU_CATEGORY ORDER BY CODE";
-				
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-
-				conn = DriverManager.getConnection(url, userid, passcode); // null if connection failed.
-				stmt = conn.createStatement();
-				rs = stmt.executeQuery(sql);
-
-				while (rs.next()) {
-					if (!strReturn.equals(""))
-						strReturn += ";";
-					strReturn += rs.getString("CODE") + "/" + rs.getString("NAME");
-				}
-			}
-			else if (request.getParameter("acc").equals("menu")) {
-				sql = "SELECT A.*, B.NAME AS CTG_NAME FROM MENU A, MENU_CATEGORY B WHERE A.CTG_CODE = B.CODE ORDER BY CTG_CODE, A.CODE";
-				
-				Class.forName("oracle.jdbc.driver.OracleDriver");
-
-				conn = DriverManager.getConnection(url, userid, passcode); // null if connection failed.
-				stmt = conn.createStatement();
-				rs = stmt.executeQuery(sql);
-
-				while (rs.next()) {
-					if (!strReturn.equals(""))
-						strReturn += ";";
-					strReturn += rs.getInt("CODE")    	 + "/" 
-						      + rs.getString("NAME")  	 + "/"
-						      + rs.getString("PRICE") 	 + "/"
-						      + rs.getString("CTG_CODE") + "/"
-						      + rs.getString("CTG_NAME");
-					
-				}
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (stmt != null)
-					stmt.close();
-				if (conn != null)
-					conn.close();
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
-
+		
+		if (request.getParameter("move").equals("menu_ctg")) 
+			strReturn = db.sel_ord_ctg();
+		else if (request.getParameter("move").equals("menu"))
+			strReturn = db.sel_ord_menu();
+		else if (request.getParameter("move").equals("sales"))
+			strReturn = db.sel_ord_sales();
+		
 		System.out.println(strReturn);
 		response.getWriter().print(strReturn);
 	}

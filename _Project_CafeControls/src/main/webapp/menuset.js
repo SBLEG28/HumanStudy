@@ -28,14 +28,14 @@ $(document)
 })
 
 function loadMenu(){
-	$.get('select', {acc : "menu"}, function(txt) {
+	$.get('select', {move : "menu"}, function(txt) {
 		if (txt == "")
 			return false;
 
 		let rec = txt.split(';');
 		let field, html = "", temp ="";
 
-		let tr, td0, td1, td2;
+		let td0, td1, td2;
 		
 		html += "<table>";
 		for (i = 0; i < rec.length; i++) {
@@ -73,7 +73,7 @@ function loadMenu(){
 function loadMenuCTG() {
 	$('#tabs').empty();
 
-	$.get('select', {acc : "menu_ctg"}, function(txt) {
+	$.get('select', {move : "menu_ctg"}, function(txt) {
 		if (txt == "")
 			return false;
 
@@ -88,5 +88,29 @@ function loadMenuCTG() {
 		}
 
 		$('#tabs').append(html);
+	}, 'text');
+}
+
+function loadSales() {
+	$('#salse').empty();
+
+	$.get('select', {move : "sales"}, function(txt) {
+		
+		if (txt == "")
+			return false;
+
+		let rec = txt.split(';');
+		let field, html;
+
+		for (i = 0; i < rec.length; i++) {
+			field = rec[i].split('/');
+			html += "<div><p>"+ field[0] + "</p></div>"
+				  + "<div><p>"+ field[1] + "</p></div>"
+				  + "<div><p>"+ field[2] + "</p></div>"
+				  + "<div><p>"+ field[3] + "</p></div>";
+			
+		}
+
+		$('#salse').append(html);
 	}, 'text');
 }
