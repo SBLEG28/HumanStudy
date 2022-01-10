@@ -39,10 +39,18 @@ public class insert extends HttpServlet {
 
 		db_sql db = new db_sql();
 
-		db.ins_ord_sale(request.getParameter("mobile")
-					, Integer.parseInt(request.getParameter("menu"))
-					, Integer.parseInt(request.getParameter("qty"))
-					, Integer.parseInt(request.getParameter("total")));
+		if (request.getParameter("move").equals("menu")) 
+			db.ins_menu(Integer.parseInt(request.getParameter("code"))
+					, request.getParameter("name")
+					, Integer.parseInt(request.getParameter("price"))
+					, request.getParameter("ctg")
+					);
+		else if (request.getParameter("move").equals("sales"))
+			db.ins_ord_sale(request.getParameter("mobile")
+						, Integer.parseInt(request.getParameter("menu"))
+						, Integer.parseInt(request.getParameter("total"))
+						, Integer.parseInt(request.getParameter("qty"))
+						);
 	}
 
 	/**

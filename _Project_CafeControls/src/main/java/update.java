@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dbconn.db_sql;
+
 /**
  * Servlet implementation class update
  */
@@ -31,45 +33,16 @@ public class update extends HttpServlet {
     */
    protected void doGet(HttpServletRequest request, HttpServletResponse response)
          throws ServletException, IOException {
-      request.setCharacterEncoding("utf-8");
-      response.setContentType("text/html, charset=utf-8");
-      Connection conn = null;
-      PreparedStatement pstmt = null;
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("text/html, charset=utf-8");
 
-      String url = "jdbc:oracle:thin:@localhost:1521:orcl"; // DB접속정보
-      String userid = "ora_user";
-      String passcode = "human123";
-      String sql = "update room set name=?,type=?,howmany=?,howmuch=? where roomcode=?";
-      String result_flag = "";
-      try {
-         Class.forName("oracle.jdbc.driver.OracleDriver");
-         conn = DriverManager.getConnection(url, userid, passcode);
-         pstmt = conn.prepareStatement(sql);
-//         System.out.println(request.getParameter("name") + "," + request.getParameter("type") + ","
-//               + request.getParameter("howmany") + "," + request.getParameter("howmuch"));
-
-         pstmt.setString(1, request.getParameter("name"));
-         pstmt.setInt(2, Integer.parseInt(request.getParameter("type")));
-         pstmt.setInt(3, Integer.parseInt(request.getParameter("howmany")));
-         pstmt.setInt(4, Integer.parseInt(request.getParameter("howmuch")));
-         pstmt.setInt(5, Integer.parseInt(request.getParameter("code")));
-
-         pstmt.executeUpdate();
-         result_flag = "OK";
-      } catch (Exception e) {
-         result_flag = "FAIL";
-         e.printStackTrace();
-      } finally {
-         try {
-            if (pstmt != null)
-               pstmt.close();
-            if (conn != null)
-               pstmt.close();
-         } catch (SQLException e) {
-            e.printStackTrace();
-         }
-
-      }
+		db_sql db = new db_sql();
+		db.up_menu(Integer.parseInt(request.getParameter("oldcode"))
+				, Integer.parseInt(request.getParameter("newcode"))
+				, request.getParameter("name")
+				, Integer.parseInt(request.getParameter("price"))
+				, request.getParameter("ctg")
+				);
    }
 
    /**

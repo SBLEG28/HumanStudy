@@ -46,6 +46,10 @@ public class select extends HttpServlet {
 			strReturn = db.sel_ord_menu();
 		else if (request.getParameter("move").equals("sales"))
 			strReturn = db.sel_ord_sales();
+		else if (request.getParameter("move").equals("manu_sales"))
+			strReturn = db.sel_menu_sales();
+		else if (request.getParameter("move").equals("cus_sales"))
+			strReturn = db.sel_cus_sales();
 		
 		System.out.println(strReturn);
 		response.getWriter().print(strReturn);

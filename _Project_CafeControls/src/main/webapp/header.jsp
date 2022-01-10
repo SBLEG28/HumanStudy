@@ -5,8 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="css/style.css">
-<div>
-  <h1>Soobin's Coffee</h1>
-</div>
 </head>
+<body>
+<div class="logo">
+  <img src="img/logo.png"/>
+  <h1>SOOBIN CAFE</h1>
+</div>
+</body>
 </html>

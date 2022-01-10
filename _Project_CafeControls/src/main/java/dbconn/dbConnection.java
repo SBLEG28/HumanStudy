@@ -53,8 +53,6 @@ public class dbConnection{
 			pstmt = conn.prepareStatement(sql);
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			closeConnection();
 		}
 	}
 	

@@ -11,12 +11,19 @@ $(document)
 		$(this).parent().detach();
 	})
 	.on("click", "#btnorder", function() {
+		let phone = $('#phone').val();
 		
-		if(nullCheck($('#phone').val()))
+		if(nullCheck(phone))
 		{
-			alert("모바일 적립 번호를 입력하지 않았습니다.")
+			alert("모바일 적립 번호를 입력하지 않았습니다.");
 			return false;
+		} else{
+			if(phone.length < 10){
+				alert("입력된 모바일 번호가 올바르지 않습니다. 양식에 맞춰 작성해주세요.");
+				return false;
+			}
 		}
+		
 		//디비에 넣기
 		allorder();
 
@@ -44,12 +51,15 @@ function allorder() {
 			console.log($("#phone").val(), obj);
 	
 			$.get('insert', {
-					mobile : $('#phone').val(),
+					move : "sales",
+					mobile : rtnregExp($('#phone').val()),
 					menu : obj.menu,
 					qty : obj.total,
 					total : obj.qty
 				}, function(txt) {
-					console.log("Sec");
+					console.log("insert");
+					loadSales();
+					$('#phone').val("");
 				}, 'text');
 		}
 	});
