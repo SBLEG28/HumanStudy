@@ -11,7 +11,7 @@ $(document)
 		$(this).parent().detach();
 	})
 	.on("click", "#btnorder", function() {
-		let phone = $('#phone').val();
+		let phone = rtnregExp($('#phone').val());
 		
 		if(nullCheck(phone))
 		{
@@ -54,8 +54,8 @@ function allorder() {
 					move : "sales",
 					mobile : rtnregExp($('#phone').val()),
 					menu : obj.menu,
-					qty : obj.total,
-					total : obj.qty
+					qty : rtnNumber(obj.total),
+					total : rtnNumber(obj.qty)
 				}, function(txt) {
 					console.log("insert");
 					loadSales();

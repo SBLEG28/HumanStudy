@@ -46,7 +46,7 @@ function loadMenu(){
 				  + field[1] + "</div>"
 				  
 				  + "<div class='price' data-code='" + field[0] + "' data-name='"+ field[1] + "' data-price='" + field[2] + "'>" 
-				  + field[2] + "원</div></div>";
+				  + rtnComma(rtnNumber(field[2])) + "원</div></div>";
 		}
 		
 		$('#menu').append(html);
@@ -88,33 +88,36 @@ function loadSales() {
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
 		
-			qty += rtnNumber(field[2]);
-			sum += rtnNumber(field[3]);
-			
-			if(i != 0 && field[0] != "") {
+			if(i != 0 && field[0] != "") {			
 				html += "<div></div><div></div>"
-				      + "<div><p>" + rtnComma(qty) + "</p></div>"
-				      + "<div><p>" + rtnComma(sum) + "</p></div>"
-				     
+				      + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
+				      + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>"
+										     
 					  + "<div><p>"+ field[0] + "</p></div>"
 					  + "<div><p>"+ field[1] + "</p></div>"
 					  + "<div><p>"+ field[2] + "</p></div>"
 					  + "<div><p>"+ field[3] + "</p></div>";
 
-				qty, sum = 0, 0; 	  	
+				qty, sum = 0, 0; 	
+						
+				qty += rtnNumber(field[2]);
+				sum += rtnNumber(field[3]);		  	
 			}
 			else{
 				html += "<div><p>"+ field[0] + "</p></div>"
 					  + "<div><p>"+ field[1] + "</p></div>"
 					  + "<div><p>"+ field[2] + "</p></div>"
 					  + "<div><p>"+ field[3] + "</p></div>";
-					  
+
 				if (i == rec.length-1){
 					html += "<div></div><div></div>"
-				     	  + "<div><p>" + rtnComma(qty) + "</p></div>"
-				     	  + "<div><p>" + rtnComma(sum) + "</p></div>"
-				     
-				}		
+				     	  + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
+				     	  + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>"
+				
+				}	
+				
+				qty += rtnNumber(field[2]);
+				sum += rtnNumber(field[3]);
 			}
 		}
 		
@@ -140,9 +143,9 @@ function SetDiaSum(){
 			field = rec[i].split('/');
 
 			html += "<div><p>"+ field[0] + "</p></div>"
-				  + "<div><p>"+ field[1] + "</p></div>"
-				  + "<div><p>"+ field[2] + "</p></div>"
-				  + "<div><p>"+ field[3] + "</p></div>";
+				  //+ "<div><p>"+ field[1] + "</p></div>"
+				  + "<div><p>"+ field[1] + "잔</p></div>"
+				  + "<div><p>"+ rtnComma(rtnNumber(field[2])) + "원</p></div>";
 		}
 
 		$("#_dgmenu").append(html);
@@ -160,9 +163,9 @@ function SetDiaSum(){
 			field = rec[i].split('/');
 
 			html += "<div><p>"+ field[0] + "</p></div>"
-				  + "<div><p>"+ field[1] + "</p></div>"
-				  + "<div><p>"+ field[2] + "</p></div>"
-				  + "<div><p>"+ field[3] + "</p></div>";
+				  //+ "<div><p>"+ field[1] + "</p></div>"
+				  + "<div><p>"+ field[1] + "잔</p></div>"
+				  + "<div><p>"+ rtnComma(rtnNumber(field[2])) + "원</p></div>";
 		}
 				
 		$("#_dgcus").append(html);

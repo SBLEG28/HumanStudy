@@ -46,29 +46,31 @@
 			<!-- 메뉴 주문창 -->
 			<div class="menubox2" id="dis_ord">
 				<!-- http://www.htmldrive.net/	-->
-				<div class="menuclick1" style="max-height:180px; border: 2px solid #036635;border-radius: 2em;padding: 10px;">
-					<div id="menuord" class="menuclick2" style="padding:10px">
-						
+				<div class="menuclick1"
+					style="max-height: 180px; border: 2px solid #036635; border-radius: 2em; padding: 10px;">
+					<div id="menuord" class="menuclick2" style="padding: 10px">
+
 						<img class="picture" id="ord_img" />
 
 						<div>
-							<p class="left" id="ord_name"></p><br>
+							<br>
+							<p class="left" id="ord_name"></p>
+							<br>
 							<p class="left" id="ord_price"></p>
-							<br><br><br><br><br><br><br>
+							<br> <br> <br> <br> <br> <br>
 							<!-- 선택 상품 총액 (수량 * 금액) -->
 							<div class="name" id="sumprice"></div>
 						</div>
 
 						<div>
-							<div>
-								<button id="btnAdd">담기</button>
-								<button id="btnReset">비우기</button>
-							</div>
+							<br>
+							<button id="btnAdd">담기</button>
+							<button id="btnReset">비우기</button>
 
+							<br> <br> <br> <br> <br>
 							<div>
-								<img class="part" id="mius" src="img/mius.png" /> <label
-									class="part" id="quantity"></label> <img class="part" id="plus"
-									src="img/plus.png" />
+								<img id="mius" src="img/mius.png" /> <label id="quantity"
+									class="name"></label> <img id="plus" src="img/plus.png" />
 							</div>
 						</div>
 					</div>
@@ -82,13 +84,15 @@
 
 				<p id="sumorder">총액 :</p>
 
-				<small>Format: 1234567890</small> 적립번호:<input type="tel" id="phone"
-					pattern="[0-9]{3}[0-9]{4}[0-9]{4}" required></input>
+				<small style="color: red;"> * 모바일번호만 입력하세요(특수문자 금지) * </small> 적립번호
+				: <input type="tel" id="phone" pattern="[0-9]{3}[0-9]{4}[0-9]{4}"
+					required></input>
 				<button id="btnallreset">일괄취소</button>
 				<button id="btnorder">주문완료</button>
 			</div>
 
-			<hr style="border: outset 5px green;">
+			<hr
+				style="border: outset 5px green; margin-top: 5px; margin-bottom: 5px">
 
 			<!-- 주문내역 리스트 -->
 			<div class="menubox4" id="shoplist"></div>
@@ -100,10 +104,9 @@
 				<h1>매 출 내 역</h1>
 				<button id="btnSummery">Summery</button>
 			</div>
-			
-			<br>
-			<br>
-			
+
+			<br> <br>
+
 			<nav id="salse" class="container"></nav>
 		</div>
 	</div>
@@ -111,47 +114,46 @@
 
 	<!-- 메뉴 관리  -->
 	<div id="dgMenu" title="메뉴관리" style="display: none;">
-		<table>
-			<tr>
-				<td><select id="selMenu" size=10 style="font-size: 14px;"></select>
-				</td>
-				<td>
-					<table>
-						<tr>
-							<td>메뉴코드</td>
-							<td><input type=text id="_code" style="width: 100px;"></td>
-						</tr>
-						<tr>
-							<td>메뉴명</td>
-							<td><input type=text id="_name" style="width: 100px;"></td>
-						</tr>
-						<tr>
-							<td>단가(가격)</td>
-							<td><input type=number id="_price" min=1
-								style="width: 100px;">원</td>
-						</tr>
-						<tr>
-							<td>메뉴 카테고리</td>
-							<td><select id="selCtg">
-							</select></td>
-						</tr>
-						<tr>
-							<td colspan="2" align="center">
-								<button id="btnInsert">추가</button>
-								<button id="btnUpdate">수정</button>
-								<button id="btnDelete">삭제</button>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
+		<div style="display: flex;">
+			<div style="flex: 1;">
+				<select id="selMenu" size=10 style="font-size: 14px;"></select>
+			</div>
+
+			<table style="flex: 1;padding: 3px;">
+				<tr>
+					<td>메뉴코드</td>
+					<td><input align="right" type=text id="_code"
+						style="width: 100px;"></td>
+				</tr>
+				<tr>
+					<td>메뉴명</td>
+					<td><input type=text id="_name" style="width: 100px;"></td>
+				</tr>
+				<tr>
+					<td>단가(가격)</td>
+					<td><input align="right" type=number id="_price" min=1
+						style="width: 100px;">원</td>
+				</tr>
+				<tr>
+					<td>메뉴 카테고리</td>
+					<td><select id="selCtg">
+					</select></td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button id="btnInsert">추가</button>
+						<button id="btnUpdate">수정</button>
+						<button id="btnDelete">삭제</button>
+					</td>
+				</tr>
+			</table>
+		</div>
 	</div>
 
 	<!-- Summery -->
 	<div id="dgSummery" title="Summery" class="dgSummery">
-		<div id="_dgmenu"></div>
-		<div id="_dgcus"></div>
+		<div id="_dgmenu" class="dgSummery_menu"></div>
+		<div id="_dgcus" class="dgSummery_cus"></div>
 	</div>
 
 	<!--
@@ -161,7 +163,8 @@
 	-->
 
 	<!-- javascript -->
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
 	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>

@@ -23,7 +23,7 @@ $(document)
 		jQuery('#ord_img').attr("src", "img/" + $(this).attr("data-code") + ".PNG");
 		$("#ord_name").text($(this).attr("data-name"));
 		$("#ord_name").val($(this).attr("data-code"));
-		$("#ord_price").text($(this).attr("data-price")+"원");
+		$("#ord_price").text(rtnComma(rtnNumber($(this).attr("data-price")))+"원");
 
 		$("#quantity").val(1);
 		$("#quantity").text("1");
@@ -34,7 +34,7 @@ $(document)
 	// 메뉴 관리_클릭
 	.on("click", "#btnManage", function() {
 		$("#dgMenu").dialog({
-			width: 500,
+			width: 620,
 			open: function() {
 				SetDiaMenu();
 			},
@@ -49,7 +49,7 @@ $(document)
 		console.log("summery");
 		
 		$("#dgSummery").dialog({
-			width: 1200,
+			width: 900,
 			open: function() {
 				SetDiaSum();
 			}
@@ -65,7 +65,7 @@ $(document)
 
 		let html = "<div class='order' id='" + name + "'>"
 			+ "<p data-code='" + $("#ord_name").val() + "'>" + $("#ord_name").text() + "</p>"
-			+ "<p>" + rtnNumber($("#sumprice").text()) + "원</p>"
+			+ "<p>" + rtnComma(rtnNumber($("#sumprice").text())) + "원</p>"
 			+ "<p>" + $("#quantity").val() + "잔</p>"
 			+ "<button id='btncancel'>주문취소</button></div>";
 
@@ -102,7 +102,7 @@ $(document)
 
 function sumPrice() {
 	$("#sumprice").empty();
-	$("#sumprice").append("상품금액 : " + rtnComma(parseInt($("#ord_price").text()) * $('#quantity').val()) + "원");
+	$("#sumprice").append("상품금액 : " + rtnComma(rtnNumber($("#ord_price").text()) * $('#quantity').val()) + "원");
 }
 
 function resetord() {

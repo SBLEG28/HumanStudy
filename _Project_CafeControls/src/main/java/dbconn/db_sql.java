@@ -111,12 +111,12 @@ public class db_sql {
 
 	public String sel_menu_sales() {
 		String sql =  "SELECT B.NAME AS MENU, "
-					+ "       TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM') AS SALES_DATE, "
+					//+ "       TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM') AS SALES_DATE, "
 					+ "       SUM(QTY) AS QTY, "
 					+ "       SUM(TOTAL) AS TOTAL "
 					+ "  FROM CAFE_SALES A, MENU B "
 					+ " WHERE A.MENU_CODE = B.CODE "
-					+ " GROUP BY B.NAME, TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM') "
+					+ " GROUP BY B.NAME  "
 					+ " ORDER BY B.NAME";
 		
 		String temp = "";
@@ -129,11 +129,11 @@ public class db_sql {
 					strReturn += ";";
 								
 				strReturn += rs.getString("MENU") 		 + "/"
-						  + (temp.equals(rs.getString("SALES_DATE")) ? "" : rs.getString("SALES_DATE")) + "/"
+						  //+ (temp.equals(rs.getString("SALES_DATE")) ? "" : rs.getString("SALES_DATE")) + "/"
 						  + rs.getString("QTY")    		 + "/"
 						  + rs.getString("TOTAL");
 				
-				temp = rs.getString("SALES_DATE");
+				//temp = rs.getString("SALES_DATE");
 			}
 
 			System.out.println(strReturn);
@@ -151,11 +151,11 @@ public class db_sql {
 	public String sel_cus_sales() {
 		String sql = "SELECT A.* "
 					+ "  FROM (SELECT MOBILE, "
-					+ "              TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM') AS SALES_DATE, "
+					//+ "              TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM') AS SALES_DATE, "
 					+ "              SUM(QTY) AS QTY, "
 					+ "              SUM(TOTAL) AS TOTAL "
 					+ "         FROM CAFE_SALES "
-					+ "        GROUP BY MOBILE, TO_CHAR(TO_DATE(SALES_DATE), 'YYYYMM')) A "
+					+ "        GROUP BY MOBILE) A "
 					+ " ORDER BY TOTAL DESC";
 		
 		String temp = "";
@@ -168,11 +168,11 @@ public class db_sql {
 					strReturn += ";";
 								
 				strReturn += rs.getString("MOBILE") + "/"
-						  + (temp.equals(rs.getString("SALES_DATE")) ? "" : rs.getString("SALES_DATE")) + "/"
+						  //+ (temp.equals(rs.getString("SALES_DATE")) ? "" : rs.getString("SALES_DATE")) + "/"
 						  + rs.getString("QTY")    + "/"
 						  + rs.getString("TOTAL");
 				
-				temp = rs.getString("SALES_DATE");
+				//temp = rs.getString("SALES_DATE");
 			}
 			
 			System.out.println(strReturn);
