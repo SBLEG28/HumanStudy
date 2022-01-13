@@ -1,29 +1,30 @@
-/**
- * 
- */
 var cnt = 0;
 
 $(document)
 	.on("click", "#tabs li a", function() {
-		/*
-		$('#tabs ul li').removeClass('active');
-		$(this).parent().addClass('active');
-		var currentTab = $(this).attr('href');
-		$('#tabs div').hide();
-		$(currentTab).show();
-		return false;
-		*/
+		let ctg = $(this).attr("data-value");
+		
+		$("#menu div").each(function(idx, val){
+			if($(this).attr("data-ctg") != null){
+				if(nullCheck(ctg))
+					$(this).attr("style", "display:block");
+				else if(ctg == $(this).attr("data-ctg"))
+					$(this).attr("style", "display:block");
+				else 
+					$(this).attr("style", "display:none");
+			}
+		});
 	})
 	.on("click", "#menu div div", function() {
+		let info = $(this).parent();
+		
 		// 클릭 데이터 찾기
 		$("#dis_ord").css("display", "inline");
 
-		console.log($(this).attr("data-code") + ".PNG");
-		
-		jQuery('#ord_img').attr("src", "img/" + $(this).attr("data-code") + ".PNG");
-		$("#ord_name").text($(this).attr("data-name"));
-		$("#ord_name").val($(this).attr("data-code"));
-		$("#ord_price").text(rtnComma(rtnNumber($(this).attr("data-price")))+"원");
+		jQuery('#ord_img').attr("src", "img/" + info.attr("data-code") + ".PNG");
+		$("#ord_name").text(info.attr("data-name"));
+		$("#ord_name").val(info.attr("data-code"));
+		$("#ord_price").text(rtnComma(rtnNumber(info.attr("data-price")))+"원");
 
 		$("#quantity").val(1);
 		$("#quantity").text("1");
@@ -34,7 +35,7 @@ $(document)
 	// 메뉴 관리_클릭
 	.on("click", "#btnManage", function() {
 		$("#dgMenu").dialog({
-			width: 620,
+			width: 600,
 			open: function() {
 				SetDiaMenu();
 			},
@@ -49,7 +50,7 @@ $(document)
 		console.log("summery");
 		
 		$("#dgSummery").dialog({
-			width: 900,
+			width: 750,
 			open: function() {
 				SetDiaSum();
 			}

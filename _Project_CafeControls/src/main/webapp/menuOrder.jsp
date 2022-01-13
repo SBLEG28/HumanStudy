@@ -22,6 +22,25 @@
 		</hgroup>
 	</header>
 
+	<script> 
+	$(function() {
+		var indicator = $('#indicator'), indicatorHalfWidth = indicator.width() / 2, lis = $('#tabs').children('li');
+				
+		$("#tabs").tabs("#content table", {
+					effect = 'fade',
+					fadeOutSpeed = 0,
+					fadeInSpeed = 400,
+					onBeforeClick = function(event, index) {
+						var li = lis.eq(index), newPos = li.position().left
+								+ (li.width() / 2) - indicatorHalfWidth;
+						indicator.stop(true).animate({
+							left : newPos
+						}, 600, 'easeInOutExpo');
+					}
+				});
+	});
+	</script>
+	
 	<div class="display1">
 		<div>
 			<!--  메뉴 출력  -->
@@ -119,7 +138,7 @@
 				<select id="selMenu" size=10 style="font-size: 14px;"></select>
 			</div>
 
-			<table style="flex: 1;padding: 3px;">
+			<table style="flex: 1; padding: 3px; margin: 5px">
 				<tr>
 					<td>메뉴코드</td>
 					<td><input align="right" type=text id="_code"
@@ -163,18 +182,18 @@
 	-->
 
 	<!-- javascript -->
-	<script type="text/javascript"
-		src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
-	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
-
-	<script type="text/javascript" src="common.js"></script>
-	<script type="text/javascript" src="dataset.js"></script>
-	<script type="text/javascript" src="menuevent.js"></script>
-	<script type="text/javascript" src="orderevent.js"></script>
-	<script type="text/javascript" src="menuManage.js"></script>
+		
+	<script type="text/javascript" src="js/jquery.tools.min.js"></script>
+	<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+	
+	<script type="text/javascript" src="js/common.js"></script>
+	<script type="text/javascript" src="js/dataset.js"></script>
+	<script type="text/javascript" src="js/menuevent.js"></script>
+	<script type="text/javascript" src="js/orderevent.js"></script>
+	<script type="text/javascript" src="js/menuManage.js"></script>
 </body>
 
 </html>

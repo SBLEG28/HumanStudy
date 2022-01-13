@@ -26,7 +26,6 @@ $(document)
 		
 		//디비에 넣기
 		allorder();
-
 		//$("#shoplist").empty();
 	})
 	;
@@ -48,8 +47,6 @@ function allorder() {
 			// 메뉴 수량
 			obj.qty = rtnNumber($(item).text());
 			
-			console.log($("#phone").val(), obj);
-	
 			$.get('insert', {
 					move : "sales",
 					mobile : rtnregExp($('#phone').val()),

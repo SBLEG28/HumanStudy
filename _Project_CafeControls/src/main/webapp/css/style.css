@@ -187,6 +187,7 @@ nav #indicator {
 }
 
 /* table */
+/*
 .picture {
 	width: 150px;
 	height: 150px;
@@ -202,7 +203,7 @@ nav #indicator {
 	width: auto;
 	height: 50px;
 	font-size: medium
-}
+}*/
 
 /* div */
 .menu {
@@ -224,16 +225,24 @@ nav #indicator {
 .dgSummery {
 	display: none;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 2fr 1fr;
 }
 
 .dgSummery_menu {
 	display: grid;
-	grid-template-columns: 6fr 2fr 2fr;
+	grid-template-columns: 6fr 1fr 1fr;
+	
+	border-collapse: collapse; 
+    border: 1px solid black;
+    margin : 5px;
 }
 .dgSummery_cus {
 	display: grid;
-	grid-template-columns: 5fr 3fr 3fr;
+	grid-template-columns: 5fr 2fr 3fr;
+	
+	border-collapse: collapse; 
+    border: 1px solid black;
+    margin : 5px;
 }
 
 div {

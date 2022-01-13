@@ -38,7 +38,7 @@ public class db_sql {
 		return strReturn;
 	}
 	
-	public String sel_ord_menu() {
+	public String sel_menu() {
 		String sql = "SELECT A.*, B.NAME AS CTG_NAME FROM MENU A, MENU_CATEGORY B WHERE A.CTG_CODE = B.CODE ORDER BY CTG_CODE, A.CODE";
 		
 		try {
@@ -94,11 +94,11 @@ public class db_sql {
 				
 				temp = rs.getString("MOBILE");
 				
-				System.out.println("------ ");
+				//System.out.println("------ ");
 			}
 			
-			System.out.println("-");
-			System.out.println(strReturn);
+			//System.out.println("-");
+			//System.out.println(strReturn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -136,7 +136,7 @@ public class db_sql {
 				//temp = rs.getString("SALES_DATE");
 			}
 
-			System.out.println(strReturn);
+			//System.out.println(strReturn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -175,7 +175,7 @@ public class db_sql {
 				//temp = rs.getString("SALES_DATE");
 			}
 			
-			System.out.println(strReturn);
+			//System.out.println(strReturn);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

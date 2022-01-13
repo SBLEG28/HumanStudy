@@ -4,27 +4,7 @@ $(document)
 	loadMenu();
 	loadSales();
 	
-	$("#dis_ord").css("display", "none");
-	
-	/*
-	$(function() {
-		var indicator = $('#indicator'), indicatorHalfWidth = indicator.width() / 2, lis = $('#tabs').children('li');
-				
-		$("#tabs").tabs("#content table", {
-					effect = 'fade',
-					fadeOutSpeed = 0,
-					fadeInSpeed = 400,
-					onBeforeClick = function(event, index) {
-						var li = lis.eq(index), newPos = li.position().left
-								+ (li.width() / 2) - indicatorHalfWidth;
-						indicator.stop(true).animate({
-							left : newPos
-						}, 600, 'easeInOutExpo');
-					}
-				});
-	});
-	*/
-	
+	$("#dis_ord").attr("style", "display:none");
 	return false;
 })
 
@@ -39,14 +19,10 @@ function loadMenu(){
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
 
-			html += "<div><div data-code='" + field[0] + "' data-name='"+ field[1] + "' data-price='" + field[2] + "'>" 
-				  + "<img class='picture' src=img/" + field[0] + ".PNG></div>"
-				  
-				  + "<div class='name' data-code='" + field[0] + "' data-name='"+ field[1] + "' data-price='" + field[2] + "'>" 
-				  + field[1] + "</div>"
-				  
-				  + "<div class='price' data-code='" + field[0] + "' data-name='"+ field[1] + "' data-price='" + field[2] + "'>" 
-				  + rtnComma(rtnNumber(field[2])) + "원</div></div>";
+			html += "<div data-code='" + field[0] + "' data-name='"+ field[1] + "' data-price='" + field[2] + "' data-ctg='" + field[3] + "'>"
+				  + "<div><img class='picture' src=img/" + field[0] + ".PNG></div>"
+				  + "<div>" + field[1] + "</div>"
+				  + "<div>" + rtnComma(rtnNumber(field[2])) + "원</div> </div>";
 		}
 		
 		$('#menu').append(html);
@@ -63,7 +39,7 @@ function loadMenuCTG() {
 		let rec = txt.split(';');
 		let field, html = "";
 
-		html = "<li><a class='current' href='#' data-value='*'>전체보기</a></li>"
+		html = "<li><a class='current' href='#' data-value=''>전체보기</a></li>"
 
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
@@ -84,10 +60,11 @@ function loadSales() {
 		let rec = txt.split(';');
 		let field, html = "";
 		let qty=0, sum=0;
-
+		
+		console.log(rec);
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
-		
+			
 			if(i != 0 && field[0] != "") {			
 				html += "<div></div><div></div>"
 				      + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
@@ -125,7 +102,6 @@ function loadSales() {
 	}, 'text');
 }
 
-	
 function SetDiaSum(){
 	$("#_dgmenu").empty();
 	$("#_dgcus").empty();
@@ -172,7 +148,6 @@ function SetDiaSum(){
 	}, 'text');
 }
 
-
 function SetDiaMenu() {
 	$("#selMenu option").remove();
 	$("#selCtg option").remove();
@@ -193,7 +168,7 @@ function SetDiaMenu() {
 				  + "        data-price='" + field[2] + "'"
 				  + "        data-ctgcd='" + field[3] + "'"
 				  + "        data-ctgnm='" + field[4] + "'"
-				  + ">" + field[0] + " ||  " + field[1] + "</option>";
+				  + ">" + field[1] + "</option>";
 		}
 
 		$("#selMenu").append(html);
@@ -210,7 +185,6 @@ function SetDiaMenu() {
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
 			html += "<option value='" 	   + field[0] + "'"
-				  + "        data-ctgnm='" + field[1] + "'"
 				  + "        data-ctgnm='" + field[1] + "'"
 				  + ">" + field[1] + "</option>";
 
