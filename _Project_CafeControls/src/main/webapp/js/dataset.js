@@ -58,43 +58,38 @@ function loadSales() {
 			return false;
 
 		let rec = txt.split(';');
-		let field, html = "";
+		let field, html = "", temp = "";
 		let qty=0, sum=0;
 		
-		console.log(rec);
 		for (i = 0; i < rec.length; i++) {
 			field = rec[i].split('/');
 			
-			if(i != 0 && field[0] != "") {			
-				html += "<div></div><div></div>"
-				      + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
-				      + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>"
-										     
-					  + "<div><p>"+ field[0] + "</p></div>"
-					  + "<div><p>"+ field[1] + "</p></div>"
-					  + "<div><p>"+ field[2] + "</p></div>"
-					  + "<div><p>"+ field[3] + "</p></div>";
-
-				qty, sum = 0, 0; 	
-						
-				qty += rtnNumber(field[2]);
-				sum += rtnNumber(field[3]);		  	
-			}
-			else{
-				html += "<div><p>"+ field[0] + "</p></div>"
-					  + "<div><p>"+ field[1] + "</p></div>"
-					  + "<div><p>"+ field[2] + "</p></div>"
-					  + "<div><p>"+ field[3] + "</p></div>";
-
-				if (i == rec.length-1){
-					html += "<div></div><div></div>"
-				     	  + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
-				     	  + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>"
-				
-				}	
-				
+			if(i != 0 && field[0] != "" && temp == ""){
 				qty += rtnNumber(field[2]);
 				sum += rtnNumber(field[3]);
+				
+				html += "<div></div><div></div>"
+			     	  + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
+			     	  + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>";
+			     	  
+			    qty = 0;
+			    sum = 0;
+			}
+			
+			html += "<div><p>"+ field[0] + "</p></div>"
+				  + "<div><p>"+ field[1] + "</p></div>"
+				  + "<div><p>"+ field[2] + "</p></div>"
+				  + "<div><p>"+ field[3] + "</p></div>";
+
+			qty += rtnNumber(field[2]);
+			sum += rtnNumber(field[3]);
+			temp = field[0];
+			
+			if (i == rec.length-1){
+				html += "<div></div><div></div>"
+			     	  + "<div><p style='font-weight: bold;'>" + rtnComma(qty) + "</p></div>"
+			     	  + "<div><p style='font-weight: bold;'>" + rtnComma(sum) + "</p></div>";
+			
 			}
 		}
 		
