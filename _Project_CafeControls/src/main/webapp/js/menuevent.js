@@ -62,6 +62,9 @@ $(document)
 	})
 
 	.on("click", "#btnAdd", function() {
+		let sum = rtnNumber($("#sumorder").text()) + rtnNumber($("#sumprice").text());
+		$("#sumorder").text("총액 : " + rtnComma(sum));
+		
 		let name = "li" + cnt;
 
 		let html = "<div class='order' id='" + name + "'>"

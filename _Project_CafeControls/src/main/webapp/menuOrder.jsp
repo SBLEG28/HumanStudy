@@ -101,9 +101,9 @@
 				<br>
 				<h1>주 문 내 역</h1>
 
-				<p id="sumorder">총액 :</p>
+				<p id="sumorder"> 총액 : 0 </p>
 
-				<small style="color: red;"> * 모바일번호만 입력하세요(특수문자 금지) * </small> 적립번호
+				<small style="color: red;"> * 모바일번호만 입력하세요(010-XXXX-XXXX) * </small> 적립번호
 				: <input type="tel" id="phone" pattern="[0-9]{3}[0-9]{4}[0-9]{4}"
 					required></input>
 				<button id="btnallreset">일괄취소</button>
@@ -126,7 +126,7 @@
 
 			<br> <br>
 
-			<nav id="salse" class="container"></nav>
+			<div id="salse" class="container"></div>
 		</div>
 	</div>
 

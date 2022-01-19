@@ -4,10 +4,14 @@
 
 $(document)
 	.on("click", "#btnallreset", function() {
+		$("#sumorder").text("총액 : 0");
+		
 		$("#shoplist").empty();
 	})
 	.on("click", "#btncancel", function() {
-		//$(choose).detach();
+		let sum = rtnNumber($("#sumorder").text()) - rtnNumber($(this).prev().prev().text());
+		$("#sumorder").text("총액 : " + rtnComma(sum));
+		
 		$(this).parent().detach();
 	})
 	.on("click", "#btnorder", function() {

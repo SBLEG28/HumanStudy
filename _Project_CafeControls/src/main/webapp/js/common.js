@@ -1,6 +1,9 @@
 function rtnNumber(str) {
 	let regex = /[^0-9]/g;
-
+	
+	if(nullCheck(str))
+		return 0;
+		
 	return parseInt(str.toString().replace(regex, ""));
 }
 
@@ -18,6 +21,8 @@ function rtnregExp(str) {
 }
 
 function nullCheck(str) {
+	str = str.trim();
+	
 	if (typeof str == "undefined" || str == null || str == "")
 		return true;
 
