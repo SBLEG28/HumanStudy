@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.edu.ILogin">
+<insert id="insertUser">
+	insert into MEMBER values(#{param1},#{param2},#{param3},#{param4},#{param5},#{param6},#{param7}, '', '')
+</insert>
+
+<select id="getUser" resultType="com.human.edu.UserInfo">
+	select * from MEMBER where id = #{param1}
+</select>
+
+<update id="updatetUser1">
+	update MEMBER set SIGNIN=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') where id = #{param1}
+</update>
+<update id="updatetUser2">
+	update MEMBER set SIGNOUT=TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') where id = #{param1}
+</update>
+</mapper>

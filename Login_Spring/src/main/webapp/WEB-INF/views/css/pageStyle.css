@@ -1,0 +1,154 @@
+@charset "EUC-KR";
+
+* {
+	box-sizing: border-box;
+}
+
+.header {
+	padding: 30px;
+	text-align: center;
+	background: white;
+}
+
+.header h1 {
+	font-size: 50px;
+}
+
+body {
+	font-family: Arial;
+	padding: 10px;
+	background: #f1f1f1;
+}
+
+.topnav {
+	overflow: hidden;
+	background-color: #333;
+}
+
+.topnav a {
+	float: right;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+.topnav a:hover {
+	background-color: #ddd;
+	color: black;
+}
+
+/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {
+	float: left;
+	width: 75%;
+}
+
+/* Right column */
+.rightcolumn {
+	float: left;
+	width: 25%;
+	background-color: #f1f1f1;
+	padding-left: 20px;
+}
+
+.fakeimg {
+	background-color: #aaa;
+	width: 100%;
+	padding: 20px;
+	text-align: center;
+}
+
+/* Add a card effect for articles */
+.card {
+	background-color: white;
+	padding: 20px;
+	margin-top: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* Footer */
+.footer {
+	padding: 20px;
+	text-align: center;
+	background: #ddd;
+	margin-top: 20px;
+}
+.footer a{
+	width: 30px;
+	height: 30px;
+	position: fixed;
+}
+.footer a.face {
+	background: url(images/social_b_facebook.png) no-repeat;
+	right: 18px;
+}
+
+.footer a.face:hover {
+	background: url(images/social_b_facebook_hover.png) no-repeat;
+}
+
+.footer a.twit {
+	background: url(images/social_b_twitter.png) no-repeat;
+	right: 48px;
+}
+
+.footer a.twit:hover {
+	background: url(images/social_b_twitter_hover.png) no-repeat;
+}
+
+.footer a.insta {
+	background: url(images/social_b_instar.png) no-repeat;
+	right: 80px;
+}
+
+.footer a.insta:hover {
+	background: url(images/social_b_instar_hover.png) no-repeat;
+}
+
+.TableStyle {
+	width: 350px;
+	border-collapse: collapse;
+	border-color: rgb(169, 172, 158);
+	border: 1px solid black;
+	margin: 0 auto;
+}
+
+.td_Text {
+	text-align: right;
+	font-size: 100px;
+}
+
+.TableStyle tr {
+	height: 50px;
+	align-content: center;
+}
+
+.TableStyle td {
+	font-size: 15px;
+	text-align: center;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 800px) {
+	.leftcolumn, .rightcolumn {
+		width: 100%;
+		padding: 0;
+	}
+}
+
+/* Responsive layout - when the screen is less than 400px wide, make the navigation links stack on top of each other instead of next to each other */
+@media screen and (max-width: 400px) {
+	.topnav a {
+		float: none;
+		width: 100%;
+	}
+}
