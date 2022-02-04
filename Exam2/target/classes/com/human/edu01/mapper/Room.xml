@@ -11,4 +11,12 @@
 	<delete id="delRoom">
 		delete from ROOM where ROOMCODE= #{param1} 
 	</delete>
+	
+	<insert id="addRoom">
+		insert into ROOM values(seq_room.nextval, #{param1}, #{param2} , #{param3} , #{param4})
+	</insert>
+	
+	<update id="editRoom">
+		update ROOM set name = #{param2}, howmuch = #{param3}, howmany = #{param4}, type = #{param5} where roomcode = #{param1}
+	</update>
 </mapper>
