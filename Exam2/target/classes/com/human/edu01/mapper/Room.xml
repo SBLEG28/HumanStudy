@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.edu01.Room">
+	<select id="getRoom" resultType="com.human.edu01.AlRoom">
+		select * from ROOM order by ROOMCODE
+	</select>
+	
+	<delete id="delRoom">
+		delete from ROOM where ROOMCODE= #{param1} 
+	</delete>
+	
+	<insert id="addRoom">
+		insert into ROOM values(seq_room.nextval, #{param1}, #{param2} , #{param3} , #{param4})
+	</insert>
+	
+	<update id="editRoom">
+		update ROOM set name = #{param2}, howmuch = #{param3}, howmany = #{param4}, type = #{param5} where roomcode = #{param1}
+	</update>
+</mapper>

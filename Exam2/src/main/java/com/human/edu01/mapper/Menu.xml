@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.edu01.Menu">
+	<select id="getMenu" resultType="com.human.edu01.AlMenu">
+		select * from MENU order by code
+	</select>
+	
+	<insert id="addMenu">
+		insert into Menu values(seq_menu.nextval, #{param1}, #{param2}) 
+	</insert>
+</mapper>
