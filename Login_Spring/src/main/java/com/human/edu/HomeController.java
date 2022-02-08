@@ -22,10 +22,33 @@ public class HomeController {
 	public String home(Model model, HttpServletRequest req) {
 		System.out.println("-- 홈2 -- ");
 		model.addAttribute("uid", req.getParameter("id"));
-
+		
+		try {
+			Test login=sqlSession.getMapper(Test.class);
+			model.addAttribute("al", login.getCountries());
+			model.addAttribute("al2", login.getDepartment());
+			
+		} catch(Exception e) {
+			System.out.println(e.toString());
+		}
 		return "home";
 	}
 
+	@RequestMapping(value = "/inst", method = RequestMethod.POST, produces = "application/json;charset=utf-8")
+	public String inst(HttpServletRequest req) {
+		try {
+			Test t=sqlSession.getMapper(Test.class);
+			t.addMenu(req.getParameter("name"), Integer.parseInt(req.getParameter("price")));
+			
+		} catch(Exception e) {
+			System.out.println(e.toString());
+			return "fail";
+		}
+		
+		System.out.println("ok");
+		return "ok";
+	}
+	
 	@RequestMapping(value = "/login", produces = "application/json;charset=utf-8")
 	public String login() {
 		return "login";

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.human.edu.Test">
+
+<select id="getCountries" resultType="com.human.edu.Contries">
+	select * from countries
+</select>
+
+<select id="getDepartment" resultType="com.human.edu.Department">
+	select a.de_id, a.par_name, a.department, b.EMP_NAME
+    from (select b.DEPARTMENT_ID as de_id, a.DEPARTMENT_NAME as par_name, b.DEPARTMENT_NAME as department, a.MANAGER_ID
+    from (select * from departments) a,
+       (select * from departments)b
+        where a.DEPARTMENT_ID(+) = b.PARENT_ID) a,
+    (select * from employees) b
+    where a.MANAGER_ID = b.EMPLOYEE_ID(+)
+    order by a.de_id
+</select>
+
+<insert id="addMenu">
+	insert into menu values(seq_menu.nextval, #{param1}, #{param2}, '400')
+</insert>
+
+</mapper>
