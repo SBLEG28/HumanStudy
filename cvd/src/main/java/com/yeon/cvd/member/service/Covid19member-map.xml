@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeon.cvd.member.service.Covid19MemberMapper">
+
+	<resultMap type="com.yeon.cvd.member.service.Covid19MemberVO" id="memberMap">
+		<id property="phoneNumber" column="phone_number" />
+		<result property="name" column="name" />
+		<result property="birthday" column="birthday" />
+		<result property="gender" column="gender" />
+		<result property="password" column="password"/>
+		<result property="address" column="address"/>
+		<result property="startDate" column="start_date"/>
+		<result property="authority" column="authority" />
+	</resultMap>
+	
+	<select id="memberSelectList" resultMap="memberMap">
+		SELECT * FROM COVID19_MEMBER
+	</select>
+	
+	<select id="memberSelectOne" resultMap="memberMap" parameterType="com.yeon.cvd.member.service.Covid19MemberVO">
+		SELECT * FROM COVID19_MEMBER WHERE PHONE_NUMBER = #{phoneNumber}
+		<if test="password != null">
+			AND PASSWORD = #{password}
+		</if>
+	</select>
+	
+	<insert id="memberInsert" parameterType="com.yeon.cvd.member.service.Covid19MemberVO">
+		insert into covid19_member
+		values(#{name}, #{birthday}, #{gender}, #{phoneNumber}, #{password}, #{address}, sysdate, #{authority})
+	</insert>
+	<update id="memberUpdate"></update>
+	<delete id="memberDelete"></delete>
+	
+	
+	
+</mapper>

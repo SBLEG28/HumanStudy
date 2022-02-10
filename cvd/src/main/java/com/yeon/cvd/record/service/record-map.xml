@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeon.cvd.record.service.RecordMapper">
+	
+	<resultMap type="com.yeon.cvd.record.service.RecordVO" id="recordMap">
+		<id property="phoneNumber" column="phone_number" />
+		<id property="recordTime" column="record_time" />
+		<result property="name" column="name" />
+		<result property="temperature" column="temperature" />
+		<result property="oxygenSaturation" column="oxygen_saturation" />
+		<result property="symptom" column="symptom" />
+	</resultMap>
+	
+	<select id="recordSelectList" resultMap="recordMap">
+		SELECT  B.* 
+		 FROM COVID19_MEMBER A, COVID19_RECORD B
+	   	WHERE A.NAME = B.NAME
+	  	  AND A.PHONE_NUMBER = B.PHONE_NUMBER
+	  	  <if test="key == 'USER'">AND A.PHONE_NUMBER=#{str}</if>
+	  	ORDER BY RECORD_TIME DESC
+	</select>
+	
+	<select id="recordSelect" resultMap="recordMap">
+		SELECT * FROM COVID19_RECORD WHERE PHONE_NUMBER = #{phoneNumber}
+	</select>
+	
+	<insert id="recordInsert" parameterType="com.yeon.cvd.record.service.RecordVO">
+		INSERT INTO COVID19_RECORD VALUES(#{name}, #{phoneNumber}, #{temperature}, #{oxygenSaturation}, #{symptom}, #{recordTime})
+	</insert>
+	
+	<delete id="recordDelete" parameterType="com.yeon.cvd.record.service.RecordVO">
+		DELETE FROM COVID19_RECORD WHERE PHONE_NUMBER = #{phoneNumber} AND RECORD_TIME = #{recordTime}
+	</delete>
+	
+	<update id="recordUpdate" parameterType="com.yeon.cvd.record.service.RecordVO">
+		UPDATE COVID19_RECORD
+		<set>
+			<if test="symptom != null">SYMPTOM = #{symptom},</if>
+			<if test="recordTime != null">RECORD_TIME = #{symptom},</if>
+		</set>
+		WHERE PHONE_NUMBER = #{phoneNumber}
+	</update>
+	
+	<select id="recordSearch" resultMap="recordMap">
+		SELECT * FROM COVID19_RECORD
+		WHERE
+		<if test="key == '전체'">1 = 1</if>
+		<if test="key == '휴대폰번호'">PHONE_NUMBER LIKE '%'||#str#||'%'</if>
+		<if test="key == '이름'">NAME LIKE '%'||#str#||'%'</if>
+		<if test="key == '기록시간'">RECORD_TIME LIKE '%'||#str#||'%'</if>
+	</select>
+</mapper>

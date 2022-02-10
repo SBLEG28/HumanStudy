@@ -23,7 +23,7 @@ public class HomeController {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 //		Menu menu = sqlSession.getMapper(Menu.class);
 //		System.out.println(menu.getMenu());
@@ -33,7 +33,7 @@ public class HomeController {
 		model.addAttribute("alRoom", room.getRoom());
 		
 		System.out.println(room.getRoom());
-		return "home";
+		return "home2";
 	}
 
 	@RequestMapping(value = "/add", method = RequestMethod.POST)

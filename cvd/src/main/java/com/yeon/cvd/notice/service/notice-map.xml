@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yeon.cvd.notice.service.NoticeMapper">
+
+	<resultMap type="com.yeon.cvd.notice.service.NoticeVO" id="noticeMap">
+		<id property="noticeId" column="notice_id" />
+		<result property="noticeTitle" column="notice_title"/>
+		<result property="noticeContent" column="notice_content"/>
+		<result property="noticeDate" column="notice_date"/>
+		<result property="noticeHit" column="notice_hit"/>
+	</resultMap>
+	
+	<select id="noticeSelectList" resultMap="noticeMap">
+		SELECT * FROM NOTICE ORDER BY NOTICE_ID DESC
+	</select>
+	
+	<select id="noticeSelect" resultMap="noticeMap">
+		SELECT * FROM NOTICE WHERE NOTICE_ID = #{noticeId}
+	</select>
+	
+	<insert id="noticeInsert" parameterType="com.yeon.cvd.notice.service.NoticeVO">
+		<selectKey keyProperty="noticeId" resultType="int" order="BEFORE">
+			SELECT MAX(NOTICE_ID) + 1 FROM NOTICE
+		</selectKey>
+		INSERT INTO NOTICE(NOTICE_ID, NOTICE_TITLE, NOTICE_CONTENT, NOTICE_DATE, NOTICE_HIT)
+		VALUES(#{noticeId}, #{noticeTitle}, #{noticeContent}, #{noticeDate}, #{noticeHit})
+	</insert>
+	
+	<delete id="noticeDelete" parameterType="com.yeon.cvd.notice.service.NoticeVO">
+		DELETE FROM NOTICE WHERE NOTICE_ID = #{noticeId}
+	</delete>
+	
+	<update id="noticeUpdate">
+	UPDATE NOTICE
+	<set>
+		<if test="noticeTitle != null">NOTICE_TITLE = #{noticeTitle},</if>
+		<if test="noticeContent != null">NOTICE_CONTENT = #{noticeContent},</if>
+		<if test="noticeDate != null">NOTICE_DATE = #{noticeDate},</if>
+	</set>
+	WHERE NOTICE_ID = #{noticeId}
+	</update>
+	
+	<update id="noticeHitUpdate" parameterType="int">
+		UPDATE NOTICE SET NOTICE_HIT = NOTICE_HIT + 1 WHERE NOTICE_ID = #{id}
+	</update>
+	
+	<select id="noticeSearch" resultMap="noticeMap">
+		SELECT * FROM NOTICE
+		WHERE
+		<if test="key == '전체'">1 = 1</if>
+		<if test="key == '제목'">NOTICE_TITLE LIKE '%'||#str#||'%'</if>
+		<if test="key == '내용'">NOTICE_CONTENT LIKE '%'||#str#||'%'</if>
+	</select>
+</mapper>
